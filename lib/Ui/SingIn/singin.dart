@@ -1,9 +1,13 @@
 import 'package:cv/Ui/NavBar/navbar.dart';
 import 'package:cv/Ui/SingUp/singup.dart';
+import 'package:cv/bloc/cubit_login/cubit.dart';
+import 'package:cv/bloc/cubit_singin/cubit.dart';
+import 'package:cv/bloc/cubit_singin/states.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SingIn extends StatelessWidget {
@@ -11,13 +15,18 @@ class SingIn extends StatelessWidget {
 
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
-
   var passwordController = TextEditingController();
   var password = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+    BlocProvider(
+    create: (BuildContext context) => CvSingInCubit(),
+child:BlocConsumer<CvSingInCubit,CvSingInStates>(
+  listener: (context, state) {},
+  builder: (context, state) {
+    return  Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
         centerTitle: true,
@@ -58,7 +67,7 @@ class SingIn extends StatelessWidget {
                       height: 0.6514286041259766,
                     ),
                     textHeightBehavior:
-                        TextHeightBehavior(applyHeightToFirstAscent: false),
+                    TextHeightBehavior(applyHeightToFirstAscent: false),
                     textAlign: TextAlign.center,
                     softWrap: false,
                   ),
@@ -128,10 +137,16 @@ class SingIn extends StatelessWidget {
                   ),
                   defauContainer(
                     onPressed: (){
-                      navigateAndFinish(context, NavBarLayout());
+                      if (formKey.currentState!.validate()) {
+                        CvSingInCubit.get(context).userLogin(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                      }
+                    //  navigateAndFinish(context, NavBarLayout());
                     },
                     height: 52,
-                    text: "إنشاء حساب جديد",
+                    text: "تسجيل دخول",
                     style: TextStyle(
                       fontFamily: 'Tajawal',
                       fontSize: 15,
@@ -180,6 +195,11 @@ class SingIn extends StatelessWidget {
         ),
       ),
     );
+  },
+) ,
+
+    );
+
   }
 }
 //Text(
