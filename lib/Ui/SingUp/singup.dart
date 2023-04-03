@@ -108,6 +108,11 @@ class SingUP extends StatelessWidget {
                           ),
                           defaultFormField(
                               controller: emailController,
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'ادخل البريد الإلكتروني';
+                                }
+                              },
                               type: TextInputType.emailAddress,
                               hint: "ادخل البريد الإلكتروني",
                               hintStyle: TextStyle(
@@ -126,6 +131,11 @@ class SingUP extends StatelessWidget {
                                 child: defaultFormField(
                                     controller: fNameController,
                                     type: TextInputType.name,
+                                    validate: (value) {
+                                      if (value.isEmpty) {
+                                        return 'ادخل الاسم الأول';
+                                      }
+                                    },
                                     hint: "الاسم الأول ",
                                     hintStyle: TextStyle(
                                         fontSize: 14,
@@ -142,6 +152,11 @@ class SingUP extends StatelessWidget {
                                 child: defaultFormField(
                                     controller: sNameController,
                                     type: TextInputType.name,
+                                    validate: (value) {
+                                      if (value.isEmpty) {
+                                        return 'الاسم الأخير';
+                                      }
+                                    },
                                     hint: "الاسم الأخير",
                                     hintStyle: TextStyle(
                                         fontSize: 14,
@@ -158,6 +173,11 @@ class SingUP extends StatelessWidget {
                               controller: dataController,
                               type: TextInputType.number,
                               hint: "تاريخ الميلاد",
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'تاريخ الميلاد';
+                                }
+                              },
                               hintStyle: TextStyle(
                                   fontSize: 14,
                                   fontFamily: "Montserrat",
@@ -170,6 +190,11 @@ class SingUP extends StatelessWidget {
                               controller: passwordController,
                               type: TextInputType.visiblePassword,
                               hint: "ادخل كلمة المرور ",
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'ادخل كلمة المرور';
+                                }
+                              },
                               hintStyle: TextStyle(
                                   fontSize: 14,
                                   fontFamily: "Montserrat",
@@ -182,6 +207,11 @@ class SingUP extends StatelessWidget {
                               controller: conpasswordController,
                               type: TextInputType.visiblePassword,
                               hint: "تأكيد كلمة المرور",
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'تأكيد كلمة المرور';
+                                }
+                              },
                               hintStyle: TextStyle(
                                   fontSize: 14,
                                   fontFamily: "Montserrat",
