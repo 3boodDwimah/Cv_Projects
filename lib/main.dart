@@ -57,9 +57,9 @@ void main() async {
   uId = CacheHelper.getData(key: 'uid');
 
   if (uId != null) {
-    widget = NavBarLayout();
-  } else {
     widget = SingIn();
+  } else {
+   widget = SingIn();
   }
 
   runApp(MyApp(
@@ -70,10 +70,11 @@ void main() async {
 
 
 class MyApp extends StatelessWidget {
-  late final Widget startWidget;
-  MyApp({
-    required this.startWidget
-});
+   final Widget startWidget;
+
+  const MyApp({Key? key,required this.startWidget}) : super(key: key);
+
+    //required this.startWidget
 
 
   // This widget is the root of your application.

@@ -361,7 +361,7 @@ Widget textWidget(final String text) {
   );
 }
 
-String uId = '';
+dynamic uId = '';
 
 void showToast({
   required String text,
