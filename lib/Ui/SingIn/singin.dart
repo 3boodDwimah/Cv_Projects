@@ -3,6 +3,7 @@ import 'package:cv/Ui/SingUp/singup.dart';
 import 'package:cv/bloc/cubit_login/cubit.dart';
 import 'package:cv/bloc/cubit_singin/cubit.dart';
 import 'package:cv/bloc/cubit_singin/states.dart';
+import 'package:cv/core/cache_helper.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,16 @@ class SingIn extends StatelessWidget {
     BlocProvider(
     create: (BuildContext context) => CvSingInCubit(),
 child:BlocConsumer<CvSingInCubit,CvSingInStates>(
-  listener: (context, state) {},
+  listener: (context, state) {
+    if (state is CvSingInErrorState) {
+      showToast(text: state.error, state: ToastStates.ERROR);
+    }
+    if (state is CvSingInSuccessState) {
+      CacheHelper.saveData(key: 'uid', value: state.uid).then((value) {
+        navigateAndFinish(context, NavBarLayout());
+      });
+    }
+  },
   builder: (context, state) {
     return  Scaffold(
       backgroundColor: AppColor.white,

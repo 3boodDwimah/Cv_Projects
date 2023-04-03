@@ -1,9 +1,12 @@
 
+import 'package:cv/Ui/NavBar/navbar.dart';
 import 'package:cv/Ui/Room/room_details.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
 import 'package:cv/Ui/Splash_Screen/splash_Screen.dart';
 import 'package:cv/Ui/test.dart';
+import 'package:cv/core/cache_helper.dart';
+import 'package:cv/core/components.dart';
 import 'package:cv/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,);
+  await CacheHelper.init();
 
 
   //var token = await FirebaseMessaging.instance.getToken();
@@ -45,30 +49,32 @@ void main() async {
   // background fcm
   // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   //
-  // Bloc.observer = MyBlocObserver();
-  // await CacheHelper.init();
   //
   // bool isDark = CacheHelper.getData(key: 'isDark');
   //
-  // Widget widget;
-  //
-  // uId = CacheHelper.getData(key: 'uid');
-  //
-  // if (uId != null) {
-  //   widget = SocialLayout();
-  // } else {
-  //   widget = LoginScreen();
-  // }
+   Widget widget;
+
+  uId = CacheHelper.getData(key: 'uid');
+
+  if (uId != null) {
+    widget = NavBarLayout();
+  } else {
+    widget = SingIn();
+  }
 
   runApp(MyApp(
     // isDark: isDark,
-    // startWidget: widget,
+     startWidget: widget,
   ));
 }
 
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  late final Widget startWidget;
+  MyApp({
+    required this.startWidget
+});
+
 
   // This widget is the root of your application.
   @override
@@ -84,7 +90,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         Locale('ar', 'AE'),
       ],
-      home: SingIn(),
+      home: startWidget,
     );
   }
 }
