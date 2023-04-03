@@ -15,8 +15,8 @@ class SingUP extends StatelessWidget {
 
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
-  var firstnameController = TextEditingController();
-  var lastnameController = TextEditingController();
+  var fNameController = TextEditingController();
+  var sNameController = TextEditingController();
   var dataController = TextEditingController();
   var passwordController = TextEditingController();
   var conpasswordController = TextEditingController();
@@ -28,7 +28,12 @@ class SingUP extends StatelessWidget {
       BlocProvider(
         create: (BuildContext context) => CvSingUpCubit(),
         child: BlocConsumer<CvSingUpCubit,CvSingUpStates>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is SocialCreateUserSuccessState)
+            {
+              navigateAndFinish(context, NavBarLayout());
+            }
+          },
           builder: (context, state) {
             return Scaffold(
               backgroundColor: AppColor.white,
@@ -119,7 +124,7 @@ class SingUP extends StatelessWidget {
                                 height: 50,
                                 width: MediaQuery.of(context).size.width / 2.23,
                                 child: defaultFormField(
-                                    controller: firstnameController,
+                                    controller: fNameController,
                                     type: TextInputType.name,
                                     hint: "الاسم الأول ",
                                     hintStyle: TextStyle(
@@ -135,7 +140,7 @@ class SingUP extends StatelessWidget {
                                 height: 50,
                                 width: MediaQuery.of(context).size.width / 2.28,
                                 child: defaultFormField(
-                                    controller: lastnameController,
+                                    controller: sNameController,
                                     type: TextInputType.name,
                                     hint: "الاسم الأخير",
                                     hintStyle: TextStyle(
@@ -185,20 +190,22 @@ class SingUP extends StatelessWidget {
                           SizedBox(
                             height: 40,
                           ),
+                          (state is! CvSingUpLoadingState)?
                           defauContainer(
                             onPressed: (){
                               if (formKey.currentState!.validate())
                               {
                                 CvSingUpCubit.get(context).userRegister(
-                                  name: lastnameController.text,
+                                  conpassword: conpasswordController.text,
+                                  fName: fNameController.text,
+                                  sName: sNameController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
-                                  phone: dataController.text,
+                                  data: dataController.text,
                                 );
 
                               }
-                             // navigateAndFinish(context, NavBarLayout());
-                            },
+                             },
                             height: 52,
                             text: "إنشاء حساب جديد ",
                             style: TextStyle(
@@ -207,7 +214,10 @@ class SingUP extends StatelessWidget {
                               color: AppColor.white,
                               fontWeight: FontWeight.w500,
                             ),
-                          ),
+                          ):CircularProgressIndicator(
+                            color: AppColor.main,
+                          )
+                          ,
                           SizedBox(
                             height: 25,
                           ),
