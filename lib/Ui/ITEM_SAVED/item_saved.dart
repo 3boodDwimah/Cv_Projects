@@ -94,10 +94,10 @@ class _FilsesState extends State<Filses> {
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       child: Column(
                         children: [
-                          postWidget(context,0),
-                          SizedBox(height: 20,),
-                          postWidget(context,0),
-                          SizedBox(height: 20,),
+                          // postWidget(context,0,CvPostCubit),
+                          // SizedBox(height: 20,),
+                          // postWidget(context,0),
+                          // SizedBox(height: 20,),
 
 
                         ],

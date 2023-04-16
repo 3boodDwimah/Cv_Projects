@@ -125,20 +125,20 @@ Widget leaflets(BuildContext context) => SingleChildScrollView(
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    postWidget(context, 1),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-
-                                    postWidget(context, 0),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-
-                                    postWidget(context, 0),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
+                                    // postWidget(context, 1),
+                                    // SizedBox(
+                                    //   height: 20,
+                                    // ),
+                                    //
+                                    // postWidget(context, 0),
+                                    // SizedBox(
+                                    //   height: 20,
+                                    // ),
+                                    //
+                                    // postWidget(context, 0),
+                                    // SizedBox(
+                                    //   height: 20,
+                                    // ),
 
                                      SizedBox(height: 40,),
                                   ],

@@ -231,7 +231,8 @@ class _PublicationsScreenState extends State<PublicationsScreen> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 15.0,left: 15,right: 15),
-                    child: postWidget(context,0),
+                    child:Text("")
+                    //postWidget(context,0),
                   );
                 },),
             ),
