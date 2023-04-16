@@ -756,11 +756,11 @@ Widget discussion(BuildContext context) {
         const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            postWidget(context, 0),
-            const SizedBox(
-              height: 20,
-            ),
-            postWidget(context, 0),
+            // postWidget(context, 0),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // postWidget(context, 0),
           ],
         ),
       ),

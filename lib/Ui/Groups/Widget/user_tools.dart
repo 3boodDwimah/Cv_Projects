@@ -181,11 +181,11 @@ class _UserToolsState extends State<UserTools> {
                               margin: const EdgeInsets.symmetric(horizontal: 15),
                               child: Column(
                                 children: [
-                                  postWidget(context,0),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  postWidget(context,0),
+                                  // postWidget(context,0),
+                                  // const SizedBox(
+                                  //   height: 15,
+                                  // ),
+                                  // postWidget(context,0),
                                 ],
                               ),
                             )
@@ -193,11 +193,11 @@ class _UserToolsState extends State<UserTools> {
                               margin: const EdgeInsets.symmetric(horizontal: 15),
                               child: Column(
                                 children: [
-                                  postWidget(context,0),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  postWidget(context,0),
+                                  // postWidget(context,0),
+                                  // const SizedBox(
+                                  //   height: 15,
+                                  // ),
+                                  // postWidget(context,0),
                                 ],
                               ),
                             )

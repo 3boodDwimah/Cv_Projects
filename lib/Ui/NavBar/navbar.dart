@@ -12,11 +12,11 @@ class NavBarLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => NavBarCubit(),
-      child: BlocConsumer<NavBarCubit, NavBarStates>(
+      create: (BuildContext context) => SocialCubit(),
+      child: BlocConsumer<SocialCubit, SocialStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          var cubit = NavBarCubit.get(context);
+          var cubit = SocialCubit.get(context);
           return Scaffold(
             backgroundColor: AppColor.ghostWhiteFA,
             body: cubit.bottomScreens[cubit.currentIndex],
@@ -31,7 +31,7 @@ class NavBarLayout extends StatelessWidget {
               selectedFontSize: 0,
               iconSize: 29,
               onTap: (index) {
-                cubit.changeBottom(index);
+                cubit.changeBottomNav(index);
               },
               currentIndex: cubit.currentIndex,
               items: [

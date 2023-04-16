@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cv/bloc/cubit_login/states.dart';
+import 'package:cv/bloc/cubit_singup/states.dart';
+import 'package:cv/core/components.dart';
 import 'package:cv/modle/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +11,18 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
 
   static CvSingUpCubit get(context) => BlocProvider.of(context);
 
+  UserDataModel? userModel;
+
+
   void userRegister({
     required String email,
-    required String fName,
+    required String firstname,
     required String password,
     required String conpassword,
     required String data,
-    required String sName,
+    required String lastName,
+    required String country,
+    required String city,
   }) {
     emit(CvSingUpLoadingState());
 
@@ -27,11 +33,13 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
     )
         .then((value) {
       userCreate(
-        uid: value.user!.uid,
-        fName: fName,
-        sName: sName,
+        uId: value.user!.uid,
+        firstname: firstname,
+        lastName: lastName,
         data: data,
         email: email,
+        country:country,
+        city:city
       );
     }).catchError((error) {
       emit(CvSingUpErrorState(error.toString()));
@@ -39,27 +47,30 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
   }
 
   void userCreate({
-    required String fName,
-    required String sName,
+    required String firstname,
+    required String lastName,
     required String email,
     required String data,
-    required String uid,
+    required String uId,
+    required String country,
+    required String city,
   }) {
-    UserModel model = UserModel(
-      fName: fName,
-      sName: sName,
-      email: email,
+    UserDataModel model = UserDataModel(
+      firstname: firstname,
+      lastName: lastName,
       data: data,
-      uId: uid,
-    //  bio: 'write your bio ...',
-    //  cover: 'https://image.freepik.com/free-photo/photo-attractive-bearded-young-man-with-cherful-expression-makes-okay-gesture-with-both-hands-likes-something-dressed-red-casual-t-shirt-poses-against-white-wall-gestures-indoor_273609-16239.jpg',
-    //  image: 'https://image.freepik.com/free-photo/photo-attractive-bearded-young-man-with-cherful-expression-makes-okay-gesture-with-both-hands-likes-something-dressed-red-casual-t-shirt-poses-against-white-wall-gestures-indoor_273609-16239.jpg',
-      isEmailVerified: false,
+      email: email,
+      uId: uId,
+      city: city,
+      country: country,
+      image:
+          'https://image.freepik.com/free-photo/photo-attractive-bearded-young-man-with-cherful-expression-makes-okay-gesture-with-both-hands-likes-something-dressed-red-casual-t-shirt-poses-against-white-wall-gestures-indoor_273609-16239.jpg',
+     // isEmailVerified:false ,
     );
     FirebaseFirestore.instance
         .collection('users')
-        .doc(uid)
-        .set(model.toMap())
+        .doc(uId)
+        .set(model.toJson())
         .then((value) {
       emit(SocialCreateUserSuccessState());
     }).catchError((error) {
@@ -73,7 +84,7 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
   void changePasswordVisibility() {
     isPassword = !isPassword;
     suffix =
-    isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+        isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
 
     emit(CvnChangePasswordVisibilityState());
   }

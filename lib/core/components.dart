@@ -1,8 +1,15 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:cv/core/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart';
 import 'package:iconly/iconly.dart';
+import 'package:path_provider/path_provider.dart';
 
+Response? response;
 
 Widget defaultButton({
   double width = double.infinity,
@@ -360,6 +367,31 @@ Widget textWidget(final String text) {
     ),
   );
 }
+
+Future<File?> imageFromURL(String name, String imageUrl) async {
+  if (imageUrl.isEmpty) return null;
+// get temporary directory of device.
+  Directory? tempDir = await () async {
+    if (Platform.isIOS) {
+      return await getApplicationDocumentsDirectory();
+    }
+    return await getExternalStorageDirectory();
+  }();
+// get temporary path from temporary directory.
+  String tempPath = tempDir!.path;
+// create a new file in temporary path with file name.
+  File file = File('$tempPath/' + name + '.png');
+// call http.get method and pass imageUrl into it to get response.
+  Response response = await get(Uri.parse(imageUrl));
+  if (response.statusCode != 200) return null;
+// write bodyBytes received in response to file.
+  await file.writeAsBytes(response.bodyBytes);
+// now return the file which is created with random name in
+// temporary directory and image bytes from response is written to // that file.
+  return file;
+}
+
+
 
 dynamic uId = '';
 

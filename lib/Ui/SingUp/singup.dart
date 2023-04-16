@@ -1,36 +1,47 @@
 import 'package:cv/Ui/NavBar/navbar.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
-import 'package:cv/bloc/cubit_login/cubit.dart';
-import 'package:cv/bloc/cubit_login/states.dart';
+import 'package:cv/bloc/cubit_singup/cubit.dart';
+import 'package:cv/bloc/cubit_singup/states.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SingUP extends StatelessWidget {
+
+class SingUP extends StatefulWidget {
   SingUP({Key? key}) : super(key: key);
 
+  @override
+  State<SingUP> createState() => _SingUPState();
+}
+
+class _SingUPState extends State<SingUP> {
   var formKey = GlobalKey<FormState>();
+
   var emailController = TextEditingController();
   var fNameController = TextEditingController();
   var sNameController = TextEditingController();
   var dataController = TextEditingController();
+  var countryController = TextEditingController();
+  var cityController = TextEditingController();
   var passwordController = TextEditingController();
   var conpasswordController = TextEditingController();
   var password = true;
+  bool isClicked = false;
+
 
   @override
   Widget build(BuildContext context) {
     return
       BlocProvider(
         create: (BuildContext context) => CvSingUpCubit(),
-        child: BlocConsumer<CvSingUpCubit,CvSingUpStates>(
+        child: BlocConsumer<CvSingUpCubit, CvSingUpStates>(
           listener: (context, state) {
-            if (state is SocialCreateUserSuccessState)
-            {
+            if (state is SocialCreateUserSuccessState) {
               navigateAndFinish(context, NavBarLayout());
             }
           },
@@ -45,7 +56,8 @@ class SingUP extends StatelessWidget {
                 ),
                 elevation: 0,
                 backgroundColor: AppColor.main,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
                 toolbarHeight: 88,
                 flexibleSpace: SafeArea(
                   child: SvgPicture.asset(
@@ -127,7 +139,10 @@ class SingUP extends StatelessWidget {
                             children: [
                               SizedBox(
                                 height: 50,
-                                width: MediaQuery.of(context).size.width / 2.23,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .width / 2.23,
                                 child: defaultFormField(
                                     controller: fNameController,
                                     type: TextInputType.name,
@@ -148,7 +163,10 @@ class SingUP extends StatelessWidget {
                               ),
                               Container(
                                 height: 50,
-                                width: MediaQuery.of(context).size.width / 2.28,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .width / 2.28,
                                 child: defaultFormField(
                                     controller: sNameController,
                                     type: TextInputType.name,
@@ -176,6 +194,40 @@ class SingUP extends StatelessWidget {
                               validate: (value) {
                                 if (value.isEmpty) {
                                   return 'تاريخ الميلاد';
+                                }
+                              },
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: "Montserrat",
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.grayishblue99a0aa)),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          defaultFormField(
+                              controller: countryController,
+                              type: TextInputType.number,
+                              hint: "الدولة",
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'الدولة';
+                                }
+                              },
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: "Montserrat",
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.grayishblue99a0aa)),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          defaultFormField(
+                              controller: cityController,
+                              type: TextInputType.number,
+                              hint: " المدينة",
+                              validate: (value) {
+                                if (value.isEmpty) {
+                                  return 'المدينة';
                                 }
                               },
                               hintStyle: TextStyle(
@@ -220,22 +272,23 @@ class SingUP extends StatelessWidget {
                           SizedBox(
                             height: 40,
                           ),
-                          (state is! CvSingUpLoadingState)?
+                          (state is! CvSingUpLoadingState) ?
                           defauContainer(
-                            onPressed: (){
-                              if (formKey.currentState!.validate())
-                              {
+
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
                                 CvSingUpCubit.get(context).userRegister(
+                                  country:countryController.text,
+                                  city:cityController.text,
                                   conpassword: conpasswordController.text,
-                                  fName: fNameController.text,
-                                  sName: sNameController.text,
+                                  firstname: fNameController.text,
+                                  lastName: sNameController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
                                   data: dataController.text,
                                 );
-
                               }
-                             },
+                            },
                             height: 52,
                             text: "إنشاء حساب جديد ",
                             style: TextStyle(
@@ -244,7 +297,7 @@ class SingUP extends StatelessWidget {
                               color: AppColor.white,
                               fontWeight: FontWeight.w500,
                             ),
-                          ):CircularProgressIndicator(
+                          ) : CircularProgressIndicator(
                             color: AppColor.main,
                           )
                           ,

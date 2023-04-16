@@ -1,51 +1,60 @@
-class UserModel {
-  String? fName;
-  String? sName;
-  String? email;
-  String? data;
-  String? uId;
-  //String? image;
-  //String? cover;
-  //String? bio;
-  bool? isEmailVerified;
+class UserDataModel {
 
-  UserModel({
-    this.email,
-    this.fName,
-    this.sName,
-    this.data,
-    this.uId,
-    //this.image,
-    //this.cover,
-    //this.bio,
-    this.isEmailVerified,
+
+    dynamic email;
+    dynamic uId;
+    dynamic firstname;
+    dynamic lastName;
+    dynamic data;
+    dynamic image;
+    dynamic country;
+    dynamic city;
+
+  UserDataModel({
+    required this.uId,
+    required this.firstname,
+    required this.email,
+    required this.lastName,
+    required this.data,
+    required this.image,
+    required this.country,
+    required this.city,
+
   });
 
-  UserModel.fromJson(Map<String, dynamic> json)
-  {
-    email = json['email'];
-    fName = json['fName'];
-    sName = json['sName'];
-    data = json['data'];
-    uId = json['uId'];
-   // image = json['image'];
-   // cover = json['cover'];
-   // bio = json['bio'];
-    isEmailVerified = json['isEmailVerified'];
-  }
+    UserDataModel.fromJson(Map<String, dynamic> json)
+    {
+      email = json['email'];
+      uId = json['uId'] ;
+      firstname = json['firstname'] ;
+      lastName = json['lastName'];
+      data = json['data'];
+      image = json['image'];
+      country = json['country'];
+      city = json['city'];
+    }
+  // UserDataModel.fromJson(Map<String, dynamic> json) {
+  //
+  //   email = json['email'] ?? '';
+  //   uId = json['uId'] ?? '';
+  //   firstname = json['firstname'] ;
+  //   lastName = json['lastName'] ?? '';
+  //   data = json['data'] ?? '';
+  //   image = json['image'] ?? '';
+  //   country = json['country'] ?? '';
+  //   city = json['city'] ?? '';
+  // }
 
-  Map<String, dynamic> toMap()
-  {
+  Map<String, dynamic> toJson() {
     return {
-      'fName':fName,
-      'sName':sName,
-      'email':email,
-      'data':data,
-      'uId':uId,
-     // 'image':image,
-     // 'cover':cover,
-     // 'bio':bio,
-      'isEmailVerified':isEmailVerified,
+      'email': email,
+      'uId': uId,
+      'firstname': firstname,
+      'lastName': lastName,
+      'data': data,
+      'image': image,
+      'country': country,
+      'city': city,
     };
   }
 }
