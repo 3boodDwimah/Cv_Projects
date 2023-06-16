@@ -1,4 +1,6 @@
-import 'package:cv/Ui/Profiles/Widget/editprofile.dart';
+import 'package:cv/Ui/Profiles/Widget/edit/editprofile.dart';
+import 'package:cv/Ui/Profiles/profilescreen.dart';
+import 'package:cv/bloc/cubit_navbar/cubit.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:cv/core/string.dart';
@@ -6,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
+
+import '../../../core/cache_helper.dart';
 
 Widget profilePersona(BuildContext context) => Container(
       margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -109,7 +113,9 @@ Widget profilePersona(BuildContext context) => Container(
             SizedBox(
               height: 20,
             ),
-            Container(
+            if( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
+
+              Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               height: 55,
               color: AppColor.white,
@@ -126,7 +132,9 @@ Widget profilePersona(BuildContext context) => Container(
                 ],
               ),
             ),
-            SizedBox(
+            if( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
+
+              SizedBox(
               height: 20,
             ),
             Container(
@@ -191,6 +199,7 @@ Widget profilePersona(BuildContext context) => Container(
                   SizedBox(
                     height: 15,
                   ),
+                  if( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
                   defauContainer(
                       text: "أكمل ملفك الشخصي",
                       height: 35,
@@ -489,13 +498,13 @@ Widget profilePersona(BuildContext context) => Container(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
+                   if   ( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
                       GestureDetector(
                           onTap: (){
                             navigateTo(context, EditProfile());
 
                           },
-                          child: SvgPicture.asset("assets/images/pan.svg"))
-                    ],
+                          child: SvgPicture.asset("assets/images/pan.svg"))    ],
                   ),
                   SizedBox(
                     height: 15,
@@ -667,6 +676,7 @@ Widget profilePersona(BuildContext context) => Container(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
+                      if( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
                       GestureDetector(
                           onTap: (){
                             navigateTo(context, EditProfile());
@@ -726,12 +736,13 @@ Widget profilePersona(BuildContext context) => Container(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
+                    if  ( SocialCubit.get(context).user!.uId! == CacheHelper.sharedPreferences!.getString('PostId'))
                       GestureDetector(
                           onTap: (){
                             navigateTo(context, EditProfile());
+
                           },
-                          child: SvgPicture.asset("assets/images/pan.svg"))
-                    ],
+                          child: SvgPicture.asset("assets/images/pan.svg"))              ],
                   ),
                   SizedBox(height: 15,),
 

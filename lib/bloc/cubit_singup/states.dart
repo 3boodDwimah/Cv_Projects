@@ -4,7 +4,11 @@ class CvSingUpInitialState extends CvSingUpStates {}
 
 class CvSingUpLoadingState extends CvSingUpStates {}
 
-class CvSingUpSuccessState extends CvSingUpStates {}
+class CvSingUpSuccessState extends CvSingUpStates {
+  final String uid;
+
+  CvSingUpSuccessState(this.uid);
+}
 
 class CvSingUpErrorState extends CvSingUpStates {
   final String error;

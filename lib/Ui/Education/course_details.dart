@@ -1,7 +1,6 @@
 import 'package:cv/Ui/Education/widget/widget_coursedetails.dart';
 import 'package:cv/Ui/Groups/Screen/group.dart';
 import 'package:cv/Ui/ITEM_SAVED/item_saved_screen.dart';
-import 'package:cv/Ui/Jop/Widget/widgetdetails.dart';
 import 'package:cv/Ui/Notification/Widget/image.dart';
 import 'package:cv/Ui/Notification/drower.dart';
 import 'package:cv/Ui/Profiles/profilescreen.dart';
@@ -34,19 +33,19 @@ class _CourseDetailsState extends State<CourseDetails> {
           padding: const EdgeInsetsDirectional.only(bottom: 30.0, end: 70),
           child: Column(
             children: [
-
               const SizedBox(
                 height: 65,
               ),
               const CustomText(
-                text: "مقدمة في برمجة المواقع",
+                text: "مقدمة إلى لغة جافا",
                 fontFamily: "Tajawal",
                 fontWeight: FontWeight.w400,
                 fontSize: 12,
                 colors: Colors.white,
               ),
-              const SizedBox(height: 5,),
-
+              const SizedBox(
+                height: 5,
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: RatingBar.builder(
@@ -55,9 +54,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                   unratedColor: Colors.amber,
                   allowHalfRating: true,
                   itemCount: 5,
-                  itemPadding:
-                  EdgeInsets.symmetric(horizontal: 1.0),
-                  itemBuilder: (context, _) => Icon(
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                  itemBuilder: (context, _) => const Icon(
                     IconlyBroken.star,
                     color: Colors.amber,
                   ),
@@ -66,32 +64,34 @@ class _CourseDetailsState extends State<CourseDetails> {
                   },
                 ),
               ),
-              SizedBox(height: 3,),
-
-              CustomText(
+              const SizedBox(
+                height: 3,
+              ),
+              const CustomText(
                 text: " (250) 4.5 ",
                 fontWeight: FontWeight.w400,
                 fontSize: 14,
                 colors: AppColor.white,
               ),
-             SizedBox(height: 3,),
-             defauContainer(text: "الإنضمام الآن",
-             background: AppColor.white,
-             borderRadius: 6,
-             height: 32,
-             width: 115,
-             style: TextStyle(
-               fontWeight: FontWeight.w500,
-               fontSize: 12,
-               color: AppColor.main,
-             )
-             )
-             
+              const SizedBox(
+                height: 3,
+              ),
+              defauContainer(
+                  text: "الإنضمام الآن",
+                  background: AppColor.white,
+                  borderRadius: 6,
+                  height: 32,
+                  width: 115,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    color: AppColor.main,
+                  ))
             ],
           ),
         ),
         leadingWidth: 120,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: AppColor.main,
         ),
         elevation: 0,
@@ -100,17 +100,15 @@ class _CourseDetailsState extends State<CourseDetails> {
           child: Container(
             child: Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 13,
                 ),
-
-
                 GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(IconlyLight.arrow_right_2))
-                ,  SizedBox(
+                    child: const Icon(IconlyLight.arrow_right_2)),
+                const SizedBox(
                   width: 7,
                 ),
                 SvgPicture.asset(
@@ -118,7 +116,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                   width: 28,
                   height: 28,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 12,
                 ),
                 GestureDetector(
@@ -126,17 +124,17 @@ class _CourseDetailsState extends State<CourseDetails> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SearchHome()));
+                              builder: (context) => const SearchHome()));
                     },
-                    child: Icon(IconlyLight.search)),
+                    child: const Icon(IconlyLight.search)),
               ],
             ),
           ),
         ),
         actions: [
           Container(
-              padding: EdgeInsetsDirectional.only(end: 10,bottom: 110),
-              child:     Builder(
+              padding: const EdgeInsetsDirectional.only(end: 10, bottom: 110),
+              child: Builder(
                   builder: (context) => IconButton(
                       icon: SvgPicture.asset(
                         "assets/images/iocnmune.svg",
@@ -179,11 +177,11 @@ class _CourseDetailsState extends State<CourseDetails> {
                     right: 20,
                     child: Text(
                       'القائمة ',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Cairo',
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
-                        color: const Color(0xffffffff),
+                        color: Color(0xffffffff),
                       ),
                       textAlign: TextAlign.right,
                     ),
@@ -195,79 +193,82 @@ class _CourseDetailsState extends State<CourseDetails> {
                   leading: Images(
                     "assets/images/Group 17643.svg",
                   ),
-                  title: Text("أحمد محمد "),
-                  subtitle: Text(
+                  title: const Text("أحمد محمد "),
+                  subtitle: const Text(
                     "مصمم واجهات مستخدم",
                     style: TextStyle(height: 0.9),
                   ),
                   trailing: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       navigateTo(context, Profile());
                     },
                     child: Container(
                       height: 30,
-                      child: Icon(
+                      child: const Icon(
                         IconlyLight.arrow_left_2,
                         color: AppColor.black,
                       ),
                       width: 30,
                       decoration: BoxDecoration(
-                          color: Color(0xffF2F2F3),
+                          color: const Color(0xffF2F2F3),
                           borderRadius: BorderRadius.circular(8)),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 11,),
+              const SizedBox(
+                height: 11,
+              ),
               myDivider(),
-              SizedBox(height: 11,),
-
+              const SizedBox(
+                height: 11,
+              ),
               GestureDetector(
-                  onTap: (){
-                    navigateTo(context, item());
+                  onTap: () {
+                    navigateTo(context, const item());
                   },
                   child: drawer("العناصر المحفوظة", IconlyLight.bookmark)),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("مركز المعلومات", IconlyLight.info_circle),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("الحاضنات", IconlyLight.folder),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               GestureDetector(
-                  onTap: (){
-                    navigateTo(context,Group ());
+                  onTap: () {
+                    navigateTo(context, const Group());
                   },
                   child: drawer("المجموعات", IconlyLight.user_1)),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               GestureDetector(
-                  onTap: (){
-                    navigateTo(context, VoiceRoom());
+                  onTap: () {
+                    navigateTo(context, const VoiceRoom());
                   },
                   child: drawer("الغرف الصوتية", IconlyLight.voice_2)),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("غرف الفيديو", IconlyLight.video),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("المناسبات", IconlyLight.calendar),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("المساعدة والدعم", IconlyLight.user),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("الإعدادات والخصوصية", IconlyLight.setting),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               drawer("تسجيل الخروج", IconlyLight.logout),
@@ -275,7 +276,6 @@ class _CourseDetailsState extends State<CourseDetails> {
           ),
         ),
       ),
-
       body: SafeArea(
         child: Column(
           children: [
@@ -292,7 +292,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                       TabBar(
                           isScrollable: true,
                           indicatorPadding:
-                              EdgeInsetsDirectional.only(start: 10),
+                              const EdgeInsetsDirectional.only(start: 10),
                           indicatorWeight: 2,
                           unselectedLabelColor: Colors.black,
                           indicatorSize: TabBarIndicatorSize.tab,
@@ -300,7 +300,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                           tabs: [
                             Tab(
                               child: Container(
-                                child: Text(
+                                child: const Text(
                                   'التفاصيل',
                                   style: TextStyle(
                                     fontFamily: 'Tajawal',
@@ -310,39 +310,33 @@ class _CourseDetailsState extends State<CourseDetails> {
                                 ),
                               ),
                             ),
-                            Tab(
-                              child: Container(
-                                child: Text(
-                                  'الوصف العام',
-                                  style: TextStyle(
-                                    fontFamily: 'Tajawal',
-                                    fontSize: 12,
-                                    color: Colors.black,
-                                  ),
+                            const Tab(
+                              child:  Text(
+                                'الوصف العام',
+                                style: TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 12,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
-                            Tab(
-                              child: Container(
-                                child: Text(
-                                  'الدروس',
-                                  style: TextStyle(
-                                    fontFamily: 'Tajawal',
-                                    fontSize: 12,
-                                    color: Colors.black,
-                                  ),
+                            const Tab(
+                              child: Text(
+                                'الدروس',
+                                style: TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 12,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
-                            Tab(
-                              child: Container(
-                                child: Text(
-                                  'التقييمات',
-                                  style: TextStyle(
-                                    fontFamily: 'Tajawal',
-                                    fontSize: 12,
-                                    color: Colors.black,
-                                  ),
+                            const Tab(
+                              child: Text(
+                                'التقييمات',
+                                style: TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 12,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -352,7 +346,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                           children: <Widget>[
                             coursesDetails(context),
                             coursesDescription(context),
-                            coursesLectures(context)  ,
+                            coursesLectures(context),
                             Container(
                               color: AppColor.black,
                             ),
@@ -378,19 +372,22 @@ Widget truewithtext(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           Icon(Icons.check,color: AppColor.main,),
+            const Icon(
+              Icons.check,
+              color: AppColor.main,
+            ),
             Container(
               width: MediaQuery.of(context).size.width / 1.25,
               child: Padding(
-                padding: const EdgeInsets.only(right: 7.0,top: 7),
+                padding: const EdgeInsets.only(right: 7.0, top: 7),
                 child: Text(
                   maxLines: 2,
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Tajawal',
                     fontSize: 11,
                     height: 1.4,
-                    color: const Color(0xff514d55),
+                    color: Color(0xff514d55),
                   ),
                   textAlign: TextAlign.right,
                 ),

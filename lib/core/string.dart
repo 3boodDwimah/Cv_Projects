@@ -22,7 +22,7 @@ class CustomText extends StatelessWidget {
   const CustomText({
     Key? key,
     required this.text,
-     this.fontFamily = "Tajawal",
+    this.fontFamily = "Tajawal",
     this.textAlign = TextAlign.center,
     this.fontSize = 16,
     this.fontWeight = FontWeight.w400,

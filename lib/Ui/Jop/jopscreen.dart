@@ -7,6 +7,7 @@ import 'package:cv/Ui/Notification/Widget/image.dart';
 import 'package:cv/Ui/Notification/drower.dart';
 import 'package:cv/Ui/Profiles/profilescreen.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
+import 'package:cv/Ui/testt.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:cv/core/string.dart';
@@ -32,12 +33,18 @@ class _JopScreenState extends State<JopScreen> {
       backgroundColor: AppColor.backgroundColorF3,
       appBar: AppBar(
         centerTitle: true,
-        title: CustomText(
-          text: "الوظائف",
-          fontFamily: "Cairo",
-          fontWeight: FontWeight.w400,
-          fontSize: 13,
-          colors: Colors.white,
+        title: GestureDetector(
+          onTap: (){
+
+            navigateTo(context,aaaaaaaa());
+          },
+          child: CustomText(
+            text: "الوظائف",
+            fontFamily: "Cairo",
+            fontWeight: FontWeight.w400,
+            fontSize: 13,
+            colors: Colors.white,
+          ),
         ),
         leadingWidth: 90,
         systemOverlayStyle: SystemUiOverlayStyle(

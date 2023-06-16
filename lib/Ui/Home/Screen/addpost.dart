@@ -82,7 +82,11 @@ class _AddPostState extends State<AddPost> {
                         print(
                             "object********************************************");
                       } else {
-                        navigateAndFinish(context, HomeView());
+                        Future.delayed(const Duration(milliseconds: 500), () {
+                          navigateAndFinish(context, HomeView());
+                        });
+
+
                       }
                     },
                     child: Container(
@@ -146,7 +150,7 @@ class _AddPostState extends State<AddPost> {
                                 height: 10,
                               ),
                               Text(
-                                '$FirstName $LastName',
+                                '${SocialCubit.get(context).user?.firstname} ${SocialCubit.get(context).user?.lastName}',
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: AppColor.black,

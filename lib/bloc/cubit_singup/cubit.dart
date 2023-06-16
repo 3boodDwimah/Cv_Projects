@@ -14,15 +14,22 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
   UserDataModel? userModel;
 
 
+
+
+
+
   void userRegister({
     required String email,
     required String firstname,
     required String password,
     required String conpassword,
-    required String data,
+    required String time,
     required String lastName,
     required String country,
     required String city,
+     String? phone,
+     String? url,
+     String? jopTitle,
   }) {
     emit(CvSingUpLoadingState());
 
@@ -36,10 +43,13 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
         uId: value.user!.uid,
         firstname: firstname,
         lastName: lastName,
-        data: data,
+          time: time,
         email: email,
         country:country,
-        city:city
+        city:city,
+          phone: "phone ?? """,
+        url:"url ?? """ ,
+        jopTitle:"jopTitle  ?? """,
       );
     }).catchError((error) {
       emit(CvSingUpErrorState(error.toString()));
@@ -50,15 +60,21 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
     required String firstname,
     required String lastName,
     required String email,
-    required String data,
+    required String time,
     required String uId,
     required String country,
     required String city,
+     String? phone,
+     String? jopTitle,
+     String? url,
   }) {
     UserDataModel model = UserDataModel(
       firstname: firstname,
+      phone: "phone ?? """,
+      jopTitle:"jopTitle ?? """ ,
+      url: "url ?? """ ,
       lastName: lastName,
-      data: data,
+      time: time,
       email: email,
       uId: uId,
       city: city,
