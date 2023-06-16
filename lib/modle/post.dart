@@ -1,7 +1,7 @@
 class PostModel {
   String? firstname ;
   String? lastName ;
-  String? uId;
+  String? postId;
   String? image;
   String? time;
   String? text;
@@ -18,7 +18,7 @@ class PostModel {
   PostModel({
     this.firstname,
     this.lastName,
-    this.uId,
+    this.postId,
     this.image,
     this.time,
     this.text,
@@ -34,7 +34,7 @@ class PostModel {
   PostModel.fromJson(Map<String, dynamic> json) {
     firstname = json['firstname'];
     lastName = json['lastName'];
-    uId = json['uId'];
+    postId = json['postId'];
     image = json['image'];
     time = json['time'];
     text = json['text'];
@@ -50,7 +50,7 @@ class PostModel {
     return {
       'firstname': firstname,
       'lastName': lastName,
-      'uId': uId,
+      'postId': postId,
       'image': image,
       'time': time,
       'text': text,

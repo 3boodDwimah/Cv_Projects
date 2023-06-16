@@ -1,6 +1,7 @@
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
 
 class LecturesScreen extends StatefulWidget {
@@ -115,11 +116,7 @@ class _LecturesScreenState extends State<LecturesScreen> {
                                     width: 1,
                                     color: AppColor.linkWaterD0D6E0),
                                 borderRadius: BorderRadius.circular(40)),
-                            child: Icon(
-                              Icons.question_mark_rounded,
-                              size: 30,
-                              color: AppColor.main,
-                            ),
+                            child: SvgPicture.asset('assets/images/quastion.svg')
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.only(
@@ -161,11 +158,7 @@ class _LecturesScreenState extends State<LecturesScreen> {
                                     width: 1,
                                     color: AppColor.linkWaterD0D6E0),
                                 borderRadius: BorderRadius.circular(40)),
-                            child: Icon(
-                              Icons.language_outlined,
-                              size: 28,
-                              color: AppColor.main,
-                            ),
+                              child: SvgPicture.asset('assets/images/wrod.svg')
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.only(
@@ -277,11 +270,7 @@ class _LecturesScreenState extends State<LecturesScreen> {
                                     width: 1,
                                     color: AppColor.linkWaterD0D6E0),
                                 borderRadius: BorderRadius.circular(40)),
-                            child: Icon(
-                              Icons.question_mark_rounded,
-                              size: 30,
-                              color: AppColor.main,
-                            ),
+                              child: SvgPicture.asset('assets/images/quastion.svg')
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.only(
@@ -323,11 +312,7 @@ class _LecturesScreenState extends State<LecturesScreen> {
                                     width: 1,
                                     color: AppColor.linkWaterD0D6E0),
                                 borderRadius: BorderRadius.circular(40)),
-                            child: Icon(
-                              Icons.language_outlined,
-                              size: 28,
-                              color: AppColor.main,
-                            ),
+                              child: SvgPicture.asset('assets/images/wrod.svg')
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.only(

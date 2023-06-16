@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv/Ui/Home/Story/app_data/story_data.dart';
 import 'package:cv/bloc/cubit_post/states.dart';
+import 'package:cv/core/components.dart';
 import 'package:cv/main.dart';
 import 'package:cv/modle/post.dart';
 import 'package:cv/modle/post_model.dart';
@@ -42,6 +43,7 @@ class CvPostCubit extends Cubit<CvPostStates> {
     postImage = null;
     emit(CvRemovePostImageState());
   }
+
 
   // Future<void> getPostVideo() async {
   //   final pickedFile = await picker.pickVideo(
@@ -126,7 +128,7 @@ class CvPostCubit extends Cubit<CvPostStates> {
         firstname: FirstName,
         lastName: LastName,
         image: ImagePer,
-        uId: UId,
+        postId: UId,
         time: time,
         text: text,
         postImage: postImage ?? '',
@@ -155,9 +157,12 @@ class CvPostCubit extends Cubit<CvPostStates> {
             .add({element.reference.id: PostModel.fromJson(element.data())});
       }
 
+
       emit(GetPostsSuccess());
     });
   }
+
+
 
   // void commentPost(postId) {
   //   FirebaseFirestore.instance
@@ -220,6 +225,69 @@ class CvPostCubit extends Cubit<CvPostStates> {
       ));
     });
   }
+  // upData Profile
+
+  void uploadPostProfileImage({
+    required String firstname,
+    required String lastName,
+    required String time,
+
+
+  }) {
+    emit(PostUserUpdateLoadingState());
+
+    firebase_storage.FirebaseStorage.instance
+        .ref()
+        .child('posts/${Uri.file(profileImage!.path).pathSegments.last}')
+        .putFile(profileImage!)
+        .then((value) {
+      value.ref.getDownloadURL().then((value) {
+        //emit(PostUploadProfileImageSuccessState());
+        print(value);
+        updatePost(
+
+          lastName: lastName,
+          firstname: firstname,
+          image: value,
+
+        );
+      }).catchError((error) {
+        emit(PostUploadProfileImageErrorState());
+      });
+    }).catchError((error) {
+      emit(PostUploadProfileImageErrorState());
+    });
+  }
+
+  void updatePost({
+
+    required String firstname,
+    required String lastName,
+    String? image,
+
+  }) {
+    PostModel model = PostModel(
+        firstname: firstname,
+        lastName: lastName,
+        image: image ?? ImagePer,
+        likes: [],
+      comments: []
+        );
+
+    FirebaseFirestore.instance
+        .collection('posts')
+        .doc(UId)
+        .update(model.toJson())
+        .then((value) {
+      getPosts();
+          //
+    }).catchError((error) {
+      emit(PostUserUpdateErrorState());
+    });
+  }
+
+
+
 
 // List<PostModel> posts = [];
   // List<String> postsId = [];

@@ -2,6 +2,7 @@ import 'package:cv/Ui/Education/course_details.dart';
 import 'package:cv/core/colors.dart';
 import 'package:cv/core/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
 
 Widget coursesDetails(BuildContext context) => Padding(
@@ -461,7 +462,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                           .only(
                           top: 20.0,
                           start: 15),
-                      child: Text("اسم الدرس "),
+                      child: Text("الطباعة في لغة جافا"),
                     )
                   ],
                 ),
@@ -514,7 +515,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                           .only(
                           bottom: 15.0,
                           start: 15),
-                      child: Text("اسم الدرس "),
+                      child: Text("المتغيرات وأنواع البيانات"),
                     ),
                   ],
                 ),
@@ -558,13 +559,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                                   BorderRadius
                                       .circular(
                                       40)),
-                              child: Icon(
-                                Icons
-                                    .question_mark_rounded,
-                                size: 30,
-                                color: AppColor
-                                    .main,
-                              ),
+                                child: Center(child: SvgPicture.asset('assets/images/quastion.svg',height: 26,width: 26,))
                             ),
                             Padding(
                               padding:
@@ -630,13 +625,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                                   BorderRadius
                                       .circular(
                                       40)),
-                              child: Icon(
-                                Icons
-                                    .language_outlined,
-                                size: 28,
-                                color: AppColor
-                                    .main,
-                              ),
+                                child: Center(child: SvgPicture.asset('assets/images/wrod.svg',height: 32,width: 32,))
                             ),
                             Padding(
                               padding:
@@ -677,7 +666,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                           .center,
                       children: [
                         Container(
-                          height: 16,
+                          height: 22,
                           width: 1,
                           color: AppColor
                               .linkWaterD0D6E0,
@@ -701,16 +690,22 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                             AppColor.main,
                           ),
                         ),
+                        Container(
+                          height: 25,
+                          width: 1,
+                          color: AppColor
+                              .linkWaterD0D6E0,
+                        ),
                       ],
                     ),
                     Padding(
                       padding:
                       const EdgeInsetsDirectional
                           .only(
-                          top: 20.0,
+                          bottom: 15.0,
                           start: 15),
-                      child: Text("اسم الدرس "),
-                    )
+                      child: Text("العمليات الحسابية"),
+                    ),
                   ],
                 ),
                 Column(
@@ -742,24 +737,18 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                                   .linkWaterD0D6E0,
                             ),
                             Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: AppColor
-                                          .linkWaterD0D6E0),
-                                  borderRadius:
-                                  BorderRadius
-                                      .circular(
-                                      40)),
-                              child: Icon(
-                                Icons
-                                    .question_mark_rounded,
-                                size: 30,
-                                color: AppColor
-                                    .main,
-                              ),
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColor
+                                            .linkWaterD0D6E0),
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(
+                                        40)),
+                                child: Center(child: SvgPicture.asset('assets/images/quastion.svg',height: 26,width: 26,))
                             ),
                             Padding(
                               padding:
@@ -814,24 +803,18 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                                   .linkWaterD0D6E0,
                             ),
                             Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: AppColor
-                                          .linkWaterD0D6E0),
-                                  borderRadius:
-                                  BorderRadius
-                                      .circular(
-                                      40)),
-                              child: Icon(
-                                Icons
-                                    .language_outlined,
-                                size: 28,
-                                color: AppColor
-                                    .main,
-                              ),
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColor
+                                            .linkWaterD0D6E0),
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(
+                                        40)),
+                                child: Center(child: SvgPicture.asset('assets/images/wrod.svg',height: 32,width: 32,))
                             ),
                             Padding(
                               padding:
@@ -861,6 +844,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
                     ),
                   ],
                 ),
+
               ],
             ),
           ),
@@ -875,7 +859,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
           ),
           height: 42,
           width: double.infinity,
-          child: Text("الدرس الثاني",
+          child: Text("الدرس الثالث",
             style: TextStyle(
               fontFamily: 'Tajawal',
               fontSize: 13,
@@ -899,7 +883,7 @@ Widget coursesLectures(BuildContext context) => SingleChildScrollView(
           ),
           height: 42,
           width: double.infinity,
-          child: Text("الدرس الثالث",
+          child: Text("الدرس الرابع",
             style: TextStyle(
               fontFamily: 'Tajawal',
               fontSize: 13,

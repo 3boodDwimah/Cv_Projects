@@ -8,6 +8,7 @@ class SocialGetUserSuccessState extends SocialStates {}
 
 class SocialGetUserErrorState extends SocialStates
 {
+  //NavbarNewPostState
   final String message;
 
   SocialGetUserErrorState({
@@ -103,6 +104,27 @@ class SocialPostImagePickedErrorState extends SocialStates {}
 
 class SocialRemovePostImageState extends SocialStates {}
 
+
+// Expr
+class SocialEditPostLoadingState extends SocialStates {}
+class SocialEditPostSuccessState extends SocialStates {}
+class SocialEditErrorState extends SocialStates {}
+
+class SocialGetExperienceLoadingState extends SocialStates {}
+
+class SocialGetExperienceSuccessState extends SocialStates {}
+
+class SocialGetExperienceErrorState extends SocialStates
+{
+  final String message;
+
+  SocialGetExperienceErrorState({
+    required this.message,
+  });
+}
+
+
+
 // chat
 
 class SocialSendMessageSuccessState extends SocialStates {}
@@ -143,3 +165,10 @@ class CvPostImagePickedSuccessState extends SocialStates {}
 class CvPostImagePickedErrorState extends SocialStates {}
 
 class CvRemovePostImageState extends SocialStates {}
+
+
+class SocialProfVideoSuccessState extends SocialStates {}
+
+class SocialProfVideoErrorState extends SocialStates {}
+
+class SocialRemoveProfVideoState extends SocialStates {}

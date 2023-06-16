@@ -211,13 +211,3 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
 
   }
 }
-//Text(
-//                           'إبدأ الآن',
-//                           style: TextStyle(
-//                             fontFamily: 'Tajawal',
-//                             fontSize: 14,
-//                             color: const Color(0xffffffff),
-//                             fontWeight: FontWeight.w500,
-//                           ),
-//                           softWrap: false,
-//                         )

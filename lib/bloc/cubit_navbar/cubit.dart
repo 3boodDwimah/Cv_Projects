@@ -20,18 +20,19 @@ import '../../modle/user.dart';
 class SocialCubit extends Cubit<SocialStates> {
   SocialCubit() : super(SocialInitialState());
 
-
   static SocialCubit get(context) => BlocProvider.of(context);
-  BuildContext? context ;
+  BuildContext? context;
 
   File? profileImage;
+
   var picker = ImagePicker();
+
   UserDataModel? user;
+
+
   File? postImage;
 
-
   int currentIndex = 0;
-
 
   void changeBottomNav(int index) {
     emit(SocialNewPostState());
@@ -74,135 +75,91 @@ class SocialCubit extends Cubit<SocialStates> {
     } else {
       print('No image selected.');
       emit(SocialProfileImagePickedErrorState());
-      {
-
-
-      }
+      {}
     }
   }
+
+
+
+  //
+//Edit Profile Image
   void uploadProfileImage({
     required String firstname,
     required String lastName,
-    required String data,
+    required String time,
+    required String city,
+    required String country,
+    required String url,
+    required String jopTitle,
+    required String phone,
   }) {
     emit(SocialUserUpdateLoadingState());
 
     firebase_storage.FirebaseStorage.instance
         .ref()
-        .child('users/${Uri
-        .file(profileImage!.path)
-        .pathSegments
-        .last}')
+        .child('users/${Uri.file(profileImage!.path).pathSegments.last}')
         .putFile(profileImage!)
         .then((value) {
       value.ref.getDownloadURL().then((value) {
         //emit(SocialUploadProfileImageSuccessState());
         print(value);
-        // updateUser(
-        //
-        //
-        //   lastName: lastName,
-        //   firstname: firstname,
-        //   data: data,
-        //   image: value,
-        // );
+        updateUser(
+          jopTitle: jopTitle,
+          phone: phone,
+          url: url,
+          city: city,
+          country: country,
+          lastName: lastName,
+          firstname: firstname,
+          time: time,
+          image: value,
+        );
       }).catchError((error) {
         emit(SocialUploadProfileImageErrorState());
       });
     }).catchError((error) {
       emit(SocialUploadProfileImageErrorState());
     });
+  }
 
-
-    // void uploadCoverImage({
-    //   required String firstname,
-    //   required String lastName,
-    //   required String data,
-    // }) {
-    //   emit(SocialUserUpdateLoadingState());
-    //   firebase_storage.FirebaseStorage.instance
-    //       .ref()
-    //       .child('users/${Uri.file(coverImage!.path).pathSegments.last}')
-    //       .putFile(coverImage!)
-    //       .then((value) {
-    //     value.ref.getDownloadURL().then((value) {
-    //       //emit(SocialUploadCoverImageSuccessState());
-    //       print(value);
-    //       updateUser(
-    //         firstname:firstname ,
-    //         lastName:lastName ,
-    //         data: data,
-    //       );
-    //     }).catchError((error) {
-    //       emit(SocialUploadCoverImageErrorState());
-    //     });
-    //   }).catchError((error) {
-    //     emit(SocialUploadCoverImageErrorState());
-    //   });
-    // }
-
-//   void updateUserImages({
-//   required String name,
-//   required String phone,
-//   required String bio,
-// })
-//   {
-//     emit(SocialUserUpdateLoadingState());
-//
-//     if(coverImage != null)
-//     {
-//       uploadCoverImage();
-//     } else if(profileImage != null)
-//     {
-//       uploadProfileImage();
-//     } else if (coverImage != null && profileImage != null)
-//     {
-//
-//     } else
-//       {
-//         updateUser(
-//           name: name,
-//           phone: phone,
-//           bio: bio,
-//         );
-//       }
-//   }
-
-    void updateUser({
-      required String firstname,
-      required String lastName,
-      required String data,
-      required String country,
-      required String city,
-      String? image,
-    }) {
-      UserDataModel model = UserDataModel(
+  void updateUser({
+    required String firstname,
+    required String lastName,
+    String? time,
+    required String city,
+    required String country,
+    String? image,
+    String? phone,
+    String? jopTitle,
+    String? url,
+  }) {
+    UserDataModel model = UserDataModel(
         firstname: firstname,
         lastName: lastName,
-        data: data,
+        time: time,
+        email: EmailUser,
+        image: image ?? ImagePer,
+        uId: uId,
+        city: city,
         country: country,
-        city:city ,
-        email: user!.email,
-        image: image ?? user!.image,
-        uId: user!.uId,
-        // isEmailVerified: false,
-      );
+        jopTitle: "jopTitle",
+        url: "Url",
+        phone: "020000000");
 
-      FirebaseFirestore.instance
-          .collection('users')
-          .doc(user!.uId)
-          .update(model.toJson())
-          .then((value) {
-        getUserData();
-      }).catchError((error) {
-        emit(SocialUserUpdateErrorState());
-      });
-    }}
-
-        //
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(UId)
+        .update(model.toJson())
+        .then((value) {
+      getUserData();
+    }).catchError((error) {
+      emit(SocialUserUpdateErrorState());
+    });
+  }
 
 
 
 
 
-      }
+
+}

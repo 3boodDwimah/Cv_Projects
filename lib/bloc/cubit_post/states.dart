@@ -117,3 +117,12 @@ class CvPostVideoPickedSuccessState extends CvPostStates {}
 class CvPostVideoPickedErrorState extends CvPostStates {}
 
 class CvRemovePostVideoState extends CvPostStates {}
+
+class PostUserUpdateLoadingState extends CvPostStates {}
+
+class PostUserUpdateErrorState extends CvPostStates {}
+
+
+class PostUploadProfileImageSuccessState extends CvPostStates {}
+
+class PostUploadProfileImageErrorState extends CvPostStates {}

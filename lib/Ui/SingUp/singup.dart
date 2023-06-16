@@ -11,6 +11,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../core/cache_helper.dart';
+
 
 class SingUP extends StatefulWidget {
   SingUP({Key? key}) : super(key: key);
@@ -42,8 +44,11 @@ class _SingUPState extends State<SingUP> {
         child: BlocConsumer<CvSingUpCubit, CvSingUpStates>(
           listener: (context, state) {
             if (state is SocialCreateUserSuccessState) {
-              navigateAndFinish(context, NavBarLayout());
+
+                navigateAndFinish(context, SingIn());
+
             }
+
           },
           builder: (context, state) {
             return Scaffold(
@@ -285,7 +290,7 @@ class _SingUPState extends State<SingUP> {
                                   lastName: sNameController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
-                                  data: dataController.text,
+                                  time: dataController.text,
                                 );
                               }
                             },
