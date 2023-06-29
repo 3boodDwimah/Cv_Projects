@@ -3,6 +3,10 @@ abstract class TrainerState {}
 class TrainerInitiaState extends TrainerState {}
 
 
+class GetpathSuccess extends TrainerState{}
+
+class GetpathSuccesss extends TrainerState{}
+
 class CreatePathLoadingState extends TrainerState{}
 
 class CreatePathSuccessState extends TrainerState{}

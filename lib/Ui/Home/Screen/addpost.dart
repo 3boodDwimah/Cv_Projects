@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cv/Ui/Home/Screen/home_view.dart';
 import 'package:cv/Ui/Home/Wdgets/corporate_updates.dart';
 import 'package:cv/bloc/cubit_post/cubit.dart';
@@ -24,8 +26,7 @@ class AddPost extends StatefulWidget {
   State<AddPost> createState() => _AddPostState();
 }
 
-DateTime now = DateTime.now();
-String formattedDate = DateFormat('kk:mm EEE d MMM').format(now);
+
 
 
 class _AddPostState extends State<AddPost> {
@@ -62,12 +63,14 @@ class _AddPostState extends State<AddPost> {
 
                         if (CvPostCubit.get(context).postImage == null) {
                           CvPostCubit.get(context).createPost(
-                            time: formattedDate,
+                            pid: random1.nextInt(99999999).toString()+random1.nextInt(99999999).toString(),
+                            time: DateFormat('kk:mm EEE d MMM').format(DateTime.now()),
                             text: textController.text,
                           );
                         } else {
                         CvPostCubit.get(context).uploadPostImage(
-                            time: formattedDate,
+                          pid: random1.nextInt(99999999).toString()+random1.nextInt(99999999).toString(),
+                          time: DateFormat('kk:mm EEE d MMM').format(DateTime.now()),
                             text: textController.text,
                           );
 

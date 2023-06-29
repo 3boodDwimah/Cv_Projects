@@ -3,16 +3,14 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv/bloc/cubit_profile/states.dart';
 import 'package:cv/core/components.dart';
-import 'package:cv/modle/cvvideo.dart';
-import 'package:cv/modle/profile.dart';
+import 'package:cv/modle/cvvideo_model.dart';
+
+import 'package:cv/modle/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:intl/intl.dart';
-
 import '../../main.dart';
-import '../../modle/user.dart';
 
 class EditProfileCubit extends Cubit<EditProfileStates> {
   EditProfileCubit() : super(EditProfileInitialState());
@@ -222,7 +220,7 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
   }) {
     emit(EditCreateVideoLoadingState());
 
-    CvVideo model = CvVideo(
+    CvVideoModel model = CvVideoModel(
       cvuId: UId,
       time: time,
       cvVideos: CvVideos ?? '',

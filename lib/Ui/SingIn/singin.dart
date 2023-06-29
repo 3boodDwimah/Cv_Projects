@@ -31,7 +31,12 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
     if (state is CvSingInSuccessState) {
       CacheHelper.saveData(key: 'uid', value: state.uid).then((value) {
         navigateAndFinish(context, NavBarLayout());
-      });
+
+
+
+
+
+      } );
     }
   },
   builder: (context, state) {
@@ -66,19 +71,25 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
                   SizedBox(
                     height: 80,
                   ),
-                  Text(
-                    'SkillFull',
-                    style: TextStyle(
-                      fontFamily: 'Houstone',
-                      fontSize: 35,
-                      color: const Color(0xff26b888),
-                      letterSpacing: 0.35000000000000003,
-                      height: 0.6514286041259766,
+                  GestureDetector(
+                    onTap: (){
+                      print("0000000${CacheHelper.getData(key: 'userStats')}aaaaaaaaaaa");
+
+                    },
+                    child: Text(
+                      'SkillFull',
+                      style: TextStyle(
+                        fontFamily: 'Houstone',
+                        fontSize: 35,
+                        color: const Color(0xff26b888),
+                        letterSpacing: 0.35000000000000003,
+                        height: 0.6514286041259766,
+                      ),
+                      textHeightBehavior:
+                      TextHeightBehavior(applyHeightToFirstAscent: false),
+                      textAlign: TextAlign.center,
+                      softWrap: false,
                     ),
-                    textHeightBehavior:
-                    TextHeightBehavior(applyHeightToFirstAscent: false),
-                    textAlign: TextAlign.center,
-                    softWrap: false,
                   ),
                   SizedBox(
                     height: 40,

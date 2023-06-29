@@ -2,6 +2,20 @@ abstract class SocialStates {}
 
 class SocialInitialState extends SocialStates {}
 
+class SingInLoadingState extends SocialStates {}
+
+class SingInSuccessState extends SocialStates {
+  final String uid;
+
+  SingInSuccessState(this.uid);
+}
+
+class SingInErrorState extends SocialStates {
+  final String error;
+
+  SingInErrorState(this.error);
+}
+
 class SocialGetUserLoadingState extends SocialStates {}
 
 class SocialGetUserSuccessState extends SocialStates {}

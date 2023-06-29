@@ -12,6 +12,7 @@ class UserDataModel {
     dynamic phone;
     dynamic jopTitle;
     dynamic url;
+    dynamic userStats;
 
   UserDataModel({
     required this.uId,
@@ -25,6 +26,7 @@ class UserDataModel {
     required this.phone,
     required this.jopTitle,
     required this.url,
+    required this.userStats,
 
   });
 
@@ -41,6 +43,8 @@ class UserDataModel {
       phone = json['phone'];
       jopTitle = json['jopTitle'];
       url = json['url'];
+      userStats = json['userStats'] ?? 0;
+
     }
 
 
@@ -57,6 +61,7 @@ class UserDataModel {
       'phone': phone,
       'jopTitle': jopTitle,
       'url': url,
+      'userStats': userStats,
     };
   }
 }

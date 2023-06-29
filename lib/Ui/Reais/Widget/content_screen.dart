@@ -31,6 +31,7 @@ class _ContentScreenState extends State<ContentScreen> {
       autoPlay: true,
       showControls: false,
       looping: true,
+
     );
     setState(() {});
   }
@@ -38,7 +39,6 @@ class _ContentScreenState extends State<ContentScreen> {
   @override
   void dispose() {
     _videoPlayerController.dispose();
-    _chewieController!.dispose();
     super.dispose();
   }
 
@@ -71,7 +71,7 @@ class _ContentScreenState extends State<ContentScreen> {
           Center(
             child: LikeIcon(),
           ),
-        OptionsScreen()
+        //OptionsScreen()
       ],
     );
   }

@@ -1,12 +1,5 @@
-import 'package:cv/Ui/Jop/Screen/publications.dart';
-import 'package:cv/bloc/cubit_post/cubit.dart';
-import 'package:cv/bloc/cubit_post/states.dart';
 import 'package:cv/core/colors.dart';
-import 'package:cv/modle/post.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconly/iconly.dart';
 
 var a = 1;
 var i = a;
@@ -459,7 +452,8 @@ var textController = TextEditingController();
 // }
 
 Widget Comments() {
-  return Column(
+  return
+    Column(
     children: [
       const SizedBox(
         height: 10,
@@ -607,11 +601,40 @@ Widget Comments() {
     ],
   );
 }
-
-Widget bottomsheet(final String txet1, IconData? widget) => Column(children: [
+Color colo = AppColor.p200E32; //200E32
+Widget bottomsheet(final String txet1, IconData? widget,) =>
+    Column(children: [
       Row(
         children: [
-          Icon(widget),
+          Icon(widget,color:colo,),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            txet1,
+            style: TextStyle(
+              fontFamily: 'Cairo',
+              fontSize: 12,
+              color: AppColor.black,
+            ),
+            textAlign: TextAlign.right,
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 8,
+      ),
+      Divider(
+        color: AppColor.linkWaterD0D6E0,
+      )
+    ]);
+
+Color colos = AppColor.main;
+Widget bottomsheetm(final String txet1, IconData? widget,) =>
+    Column(children: [
+      Row(
+        children: [
+          Icon(widget,color:colos,),
           SizedBox(
             width: 10,
           ),

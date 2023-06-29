@@ -3,6 +3,8 @@ abstract class CvPostStates {}
 class CvPostInitialState extends CvPostStates {}
 class Empty extends CvPostStates {}
 class GetPostsSuccess extends CvPostStates {}
+class GetSaveSuccess extends CvPostStates {}
+class GetCommentSuccess extends CvPostStates {}
 
 
 class CvGetPostsLoadingState extends CvPostStates {}
@@ -122,6 +124,10 @@ class PostUserUpdateLoadingState extends CvPostStates {}
 
 class PostUserUpdateErrorState extends CvPostStates {}
 
+
+class PostUpdateItemSaveSuccessState extends CvPostStates {}
+
+class PostUpdateRemoveItemSaveSuccessState extends CvPostStates {}
 
 class PostUploadProfileImageSuccessState extends CvPostStates {}
 

@@ -1,8 +1,10 @@
+import 'package:cv/Ui/BusinessOwners/addNewJop.dart';
 import 'package:cv/Ui/NavBar/navbar.dart';
 import 'package:cv/Ui/Room/room_details.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
 import 'package:cv/Ui/Splash_Screen/splash_Screen.dart';
+import 'package:cv/Ui/aaaaaaaaa.dart';
 import 'package:cv/Ui/test.dart';
 import 'package:cv/bloc/cubit_profile/cubit.dart';
 import 'package:cv/bloc/cubit_profile/states.dart';
@@ -10,6 +12,7 @@ import 'package:cv/bloc/cubit_navbar/cubit.dart';
 import 'package:cv/bloc/cubit_navbar/states.dart';
 import 'package:cv/bloc/cubit_post/cubit.dart';
 import 'package:cv/bloc/cubit_post/states.dart';
+import 'package:cv/bloc/cubit_reels/cubit.dart';
 import 'package:cv/core/cache_helper.dart';
 import 'package:cv/core/components.dart';
 import 'package:cv/firebase_options.dart';
@@ -102,33 +105,58 @@ class MyApp extends StatelessWidget {
 
               ),
           BlocProvider(
+              create: (BuildContext context) => ReelCubit()..getAllReels()
+
+          ),
+          BlocProvider(
             create: (BuildContext context) => CvPostCubit()
-              ..getPosts(),
+              ..getPosts()..getSave(),
           ),
           BlocProvider(
             create: (BuildContext context) => ChatCubit()
               ..getUsers(),
           ),
           BlocProvider(
-            create: (BuildContext context) => EditProfileCubit()
+            create: (BuildContext context) => EditProfileCubit()..getEducationData()..getExperienceData()
               ..getFollowers(followersID: "followersID"),
           ),
-          //   BlocProvider(
-          //                                           create: (BuildContext context) => EditProfileCubit()
-          //
-          //                                             ..getFollowers(followersID: ''),
-          //                                           child:
+          BlocProvider(
+            create: (BuildContext context) => TrainerCubit()
+
+          ),
+
 
         ],
         child:
             BlocConsumer<SocialCubit, SocialStates>(listener: (context, state) {
-          print(
-              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-          FirstName = SocialCubit.get(context).user!.firstname;
-          LastName = SocialCubit.get(context).user!.lastName;
-          UId = SocialCubit.get(context).user!.uId;
-          ImagePer = SocialCubit.get(context).user!.image;
-          EmailUser = SocialCubit.get(context).user!.email;
+              print(
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+              FirstName = SocialCubit
+                  .get(context)
+                  .user!
+                  .userStats;
+              LastName = SocialCubit
+                  .get(context)
+                  .user!
+                  .lastName;
+              UId = SocialCubit
+                  .get(context)
+                  .user!
+                  .uId;
+              ImagePer = SocialCubit
+                  .get(context)
+                  .user!
+                  .image;
+              EmailUser = SocialCubit
+                  .get(context)
+                  .user!
+                  .email;
+              CacheHelper.saveData(key: 'userStats', value: SocialCubit
+                  .get(context)
+                  .user!
+                  .userStats);
+
+            print("Shared${CacheHelper.sharedPreferences!.get('userStats')}");
           // jop = EditProfileCubit.get(context).editProfileModel!.companyName;
 
 
@@ -151,7 +179,7 @@ class MyApp extends StatelessWidget {
             supportedLocales: [
               Locale('ar', 'AE'),
             ],
-            home: startWidget,
+            home: SearchScreen(),
           );
         }));
   }

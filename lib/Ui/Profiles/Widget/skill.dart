@@ -1,6 +1,7 @@
 import 'package:cv/bloc/cubit_profile/cubit.dart';
 import 'package:cv/bloc/cubit_profile/states.dart';
 import 'package:cv/core/colors.dart';
+import 'package:cv/core/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,7 +43,12 @@ class Skill extends StatelessWidget {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index){
-                      return Container(
+                      return
+
+                      (EditProfileCubit.get(context).EducationList[index].values.single.uId == uId)?
+
+
+                        Container(
                         width: double.infinity,
                         child: Row(
                           children: [
@@ -129,7 +135,7 @@ class Skill extends StatelessWidget {
                             ),
                           ],
                         ),
-                      );
+                      ):Container();
                     },
                   ),
 
@@ -162,7 +168,10 @@ class Skill extends StatelessWidget {
                     itemCount:
                         EditProfileCubit.get(context).ExperienceList.length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return
+                        (EditProfileCubit.get(context).ExperienceList[index].values.single.uId == uId)?
+
+                        Container(
                         width: double.infinity,
                         child: Row(
                           children: [
@@ -305,7 +314,7 @@ class Skill extends StatelessWidget {
                             ),
                           ],
                         ),
-                      );
+                      ):Container();
                     }),
 
 

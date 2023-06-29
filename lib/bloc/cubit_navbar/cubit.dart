@@ -1,13 +1,17 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv/Ui/BusinessOwners/addNewJop.dart';
+import 'package:cv/Ui/Chats/list_chats.dart';
 import 'package:cv/Ui/Education/educationscreen.dart';
 import 'package:cv/Ui/Home/Screen/home_view.dart';
 import 'package:cv/Ui/Jop/jopscreen.dart';
 import 'package:cv/Ui/Notification/notifications.dart';
 import 'package:cv/Ui/Reais/Widget/home_page.dart';
+import 'package:cv/Ui/Search/search_home.dart';
 import 'package:cv/bloc/cubit_navbar/states.dart';
-import 'package:cv/modle/post.dart';
+import 'package:cv/core/cache_helper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
@@ -47,20 +51,29 @@ class SocialCubit extends Cubit<SocialStates> {
     const EducationScreen(),
     const NotificationScreen(),
   ];
+  List<Widget> bottomScreensbe = [
+     HomePage(),
+    const NotificationScreen(),
+    AddNewJop(),
+     List_Chat(),
+    const SearchHome(
+    ),
+  ];
 
   void getUserData() {
     emit(SocialGetUserLoadingState());
 
-    FirebaseFirestore.instance.collection('users').doc(uId).get().then((value) {
+    FirebaseFirestore.instance.collection('users').doc(uId).snapshots().listen((value) {
       user = UserDataModel.fromJson(value.data()!);
       emit(SocialGetUserSuccessState());
-    }).catchError((error) {
-      debugPrint(error.toString());
-
-      emit(SocialGetUserErrorState(
-        message: error.toString(),
-      ));
     });
+    // }).catchError((error) {
+    //   debugPrint(error.toString());
+    //
+    //   emit(SocialGetUserErrorState(
+    //     message: error.toString(),
+    //   ));
+    // });
   }
 
   Future<void> getProfileImage() async {
@@ -121,6 +134,26 @@ class SocialCubit extends Cubit<SocialStates> {
       emit(SocialUploadProfileImageErrorState());
     });
   }
+  void userLogin({
+    required String email,
+    required String password,
+  }) {
+    emit(SingInLoadingState());
+
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    )
+        .then((value) {
+      print(value.user!.email!);
+      print(value.user!.uid);
+      emit(SingInSuccessState(value.user!.uid));
+    }).catchError((error) {
+      emit(SingInErrorState(error.toString()));
+    });
+  }
+
 
   void updateUser({
     required String firstname,
@@ -134,6 +167,8 @@ class SocialCubit extends Cubit<SocialStates> {
     String? url,
   }) {
     UserDataModel model = UserDataModel(
+        userStats:2,
+
         firstname: firstname,
         lastName: lastName,
         time: time,
