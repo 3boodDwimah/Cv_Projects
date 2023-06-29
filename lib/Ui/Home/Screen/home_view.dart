@@ -339,12 +339,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                   CacheHelper.removeData(
                                     key: 'userStats',
                                   );
-                                  if (value) {
-                                    navigateAndFinish(
-                                      context,
-                                      SearchScreen(),
-                                    );
-                                  }
+
                                 });
                               }
                               print("${CacheHelper.getData(key:'userStats')}686686886");
