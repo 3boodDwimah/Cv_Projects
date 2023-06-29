@@ -4,7 +4,6 @@ import 'package:cv/Ui/Room/room_details.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
 import 'package:cv/Ui/Splash_Screen/splash_Screen.dart';
-import 'package:cv/Ui/aaaaaaaaa.dart';
 import 'package:cv/Ui/test.dart';
 import 'package:cv/bloc/cubit_profile/cubit.dart';
 import 'package:cv/bloc/cubit_profile/states.dart';
@@ -19,7 +18,7 @@ import 'package:cv/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'bloc/cubit_chat/cubit.dart';
 import 'bloc/cubit_trainer/cubit.dart';
@@ -171,15 +170,15 @@ class MyApp extends StatelessWidget {
 
             title: 'CV',
             debugShowCheckedModeBanner: false,
-            localizationsDelegates: [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: [
-              Locale('ar', 'AE'),
-            ],
-            home: SearchScreen(),
+            // localizationsDelegates: [
+            //   GlobalMaterialLocalizations.delegate,
+            //   GlobalWidgetsLocalizations.delegate,
+            //   GlobalCupertinoLocalizations.delegate,
+            // ],
+            // supportedLocales: [
+            //   Locale('ar', 'AE'),
+            // ],
+            home:startWidget ,
           );
         }));
   }
