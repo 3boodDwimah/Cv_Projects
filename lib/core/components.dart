@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:cv/core/colors.dart';
@@ -391,9 +392,12 @@ Future<File?> imageFromURL(String name, String imageUrl) async {
   return file;
 }
 
+DateTime now = DateTime.now();
 
 
 dynamic uId = '';
+Random random1 = Random();
+
 
 void showToast({
   required String text,

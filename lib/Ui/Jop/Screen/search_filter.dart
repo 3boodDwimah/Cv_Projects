@@ -237,7 +237,7 @@ class _Search_FilterScreenState extends State<Search_FilterScreen> {
 
                         child: GestureDetector(
                             onTap: (){
-                              navigateTo(context, jop_details());
+                              //navigateTo(context, jop_details());
                             },
                             child: JopList(context))
 

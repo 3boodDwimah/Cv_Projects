@@ -188,15 +188,9 @@ class _leafletsState extends State<leaflets> {
                                             .postsList
                                             .length,
                                         itemBuilder:
-                                            (context, index) => BlocBuilder<
-                                                    CvPostCubit,
-                                                    CvPostStates>(
+                                            (context, index) => BlocBuilder<CvPostCubit, CvPostStates>(
                                                   builder: (context, state) {
-                                                    return (CvPostCubit.get(
-                                                                    context)
-                                                                .postsList[
-                                                                    index]
-                                                                .values
+                                                    return (CvPostCubit.get(context).postsList[index].values
                                                                 .single
                                                                 .postId ==
                                                             CacheHelper

@@ -1,10 +1,14 @@
+import 'package:cv/Ui/BusinessOwners/addNewJop.dart';
 import 'package:cv/bloc/cubit_navbar/cubit.dart';
 import 'package:cv/bloc/cubit_navbar/states.dart';
+import 'package:cv/core/cache_helper.dart';
 import 'package:cv/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
+
+import '../../core/components.dart';
 
 class NavBarLayout extends StatelessWidget {
   const NavBarLayout({Key? key}) : super(key: key);
@@ -19,7 +23,11 @@ class NavBarLayout extends StatelessWidget {
           var cubit = SocialCubit.get(context);
           return Scaffold(
             backgroundColor: AppColor.ghostWhiteFA,
-            body: cubit.bottomScreens[cubit.currentIndex],
+            body:
+            CacheHelper.getData(key: 'fi') == 2 ?
+
+            cubit.bottomScreens[cubit.currentIndex]:
+            cubit.bottomScreensbe[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               backgroundColor: AppColor.white,
               selectedItemColor: AppColor.main,
@@ -56,27 +64,52 @@ class NavBarLayout extends StatelessWidget {
                         ),
                       ],
                     )),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: Icon(
-                      IconlyLight.work,
-                    ),
-                    activeIcon: Column(
-                      children: [
-                        Container(
-                          width: 10,
-                          height: 2.2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: AppColor.main,
-                          ),
+                CacheHelper.getData(key: 'fi') == 2
+                    ? BottomNavigationBarItem(
+                        label: '',
+                        icon: Icon(
+                          IconlyLight.work,
                         ),
-                        SizedBox(
-                          height: 5,
+                        activeIcon: Column(
+                          children: [
+                            Container(
+                              width: 10,
+                              height: 2.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: AppColor.main,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Icon(IconlyBroken.work),
+                          ],
+                        ))
+                    : BottomNavigationBarItem(
+                        icon: Icon(
+                          IconlyBroken.notification,
                         ),
-                        Icon(IconlyBroken.work),
-                      ],
-                    )),
+                        activeIcon: Column(
+                          children: [
+                            Container(
+                              width: 10,
+                              height: 2.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: AppColor.main,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Icon(IconlyBroken.notification),
+                          ],
+                        ),
+                        label: '',
+                      ),
+                CacheHelper.getData(key: 'fi') == 2 ?
+
                 BottomNavigationBarItem(
                   icon: Icon(
                     IconlyLight.activity,
@@ -98,7 +131,26 @@ class NavBarLayout extends StatelessWidget {
                     ],
                   ),
                   label: '',
+                ):
+                BottomNavigationBarItem(
+                    label: '',
+                    icon:
+                      Container(
+                        width: 46,
+                        height: 46,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(45)),
+                            color: AppColor.main),
+                        child: Icon(
+                          Icons.add,
+                          color: AppColor.white,
+                        ),
+                      ),
+                      backgroundColor: AppColor.main,
+
                 ),
+                CacheHelper.getData(key: 'fi') == 2 ?
+
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                     'assets/images/edu.svg',
@@ -127,7 +179,38 @@ class NavBarLayout extends StatelessWidget {
                     ],
                   ),
                   label: '',
+                ):BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    "assets/images/iconmes.svg",
+                    color: AppColor.mulledWine55,
+                    width: 28,
+                    height: 28,
+                  ),
+                  activeIcon: Column(
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 2.2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: AppColor.main,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+          SvgPicture.asset(
+          "assets/images/iconmes.svg",
+          color: AppColor.main,
+          width: 28,
+          height: 28,
+          ),
+                    ],
+                  ),
+                  label: '',
                 ),
+                CacheHelper.getData(key: 'fi') == 2 ?
+
                 BottomNavigationBarItem(
                   icon: Icon(
                     IconlyBroken.notification,
@@ -146,6 +229,28 @@ class NavBarLayout extends StatelessWidget {
                         height: 5,
                       ),
                       Icon(IconlyBroken.notification),
+                    ],
+                  ),
+                  label: '',
+                ):BottomNavigationBarItem(
+                  icon:Icon(IconlyLight.search,size: 22),
+                  activeIcon: Column(
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 2.2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: AppColor.main,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                  Icon(IconlyLight.search,
+                    size: 22,
+                        color: AppColor.main,
+                      ),
                     ],
                   ),
                   label: '',

@@ -69,6 +69,7 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
      String? url,
   }) {
     UserDataModel model = UserDataModel(
+      userStats:2,
       firstname: firstname,
       phone: "phone ?? """,
       jopTitle:"jopTitle ?? """ ,
