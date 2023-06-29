@@ -70,7 +70,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Animation? storycolorAnimation;
   var textController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-  List<String> comment = ['ZHkwZRKLL5WR9MjjmExU','xzYdOfN8J8kVfuFe51yO'];
 
 
 
