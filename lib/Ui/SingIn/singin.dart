@@ -65,6 +65,7 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Form(
+
               key: formKey,
               child: Column(
                 children: [
@@ -117,6 +118,8 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
                     height: 30,
                   ),
                   defaultFormField(
+                      key: const ValueKey("username"),
+
                       controller: emailController,
                       type: TextInputType.emailAddress,
                       hint: "ادخل البريد الإلكتروني أو اسم المستخدم",
@@ -129,6 +132,8 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
                     height: 25,
                   ),
                   defaultFormField(
+                      key: const ValueKey("password"),
+
                       controller: passwordController,
                       type: TextInputType.visiblePassword,
                       hint: "ادخل كلمة المرور ",
@@ -156,6 +161,7 @@ child:BlocConsumer<CvSingInCubit,CvSingInStates>(
                     height: 50,
                   ),
                   defauContainer(
+                    key: const ValueKey("signIn"),
                     onPressed: (){
                       if (formKey.currentState!.validate()) {
                         CvSingInCubit.get(context).userLogin(

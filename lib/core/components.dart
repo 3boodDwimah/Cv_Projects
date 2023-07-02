@@ -46,6 +46,8 @@ Widget defauContainer(
         double width = double.infinity,
         double borderRadius = 10,
           Color background = AppColor.main,
+          Key? key,
+
 
           EdgeInsetsGeometry? padding,
         EdgeInsetsGeometry? margin,
@@ -53,6 +55,7 @@ Widget defauContainer(
         void Function()? onPressed,
         TextStyle? style}) =>
     GestureDetector(
+      key: key,
       onTap: onPressed,
       child: Container(
         padding: padding,
@@ -137,6 +140,7 @@ Widget defaultFormFieldWithOut({
         ));
 //////
 Widget defaultFormField({
+
   required TextEditingController controller,
   required TextInputType type,
   ValueChanged? onSubmit,
@@ -152,6 +156,7 @@ Widget defaultFormField({
   double width = 1,
   double pad = 1,
   int MaxLines = 1,
+  Key? key,
 
 
   Color? color = AppColor.white,
@@ -159,6 +164,7 @@ Widget defaultFormField({
   bool isClickable = true,
 }) =>
     TextFormField(
+      key: key,
       maxLines: MaxLines,
         obscureText: isPassword,
         onFieldSubmitted: onSubmit,

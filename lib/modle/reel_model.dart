@@ -26,7 +26,7 @@ class ReelsModel {
     ownerImage = json['ownerImage'] ?? '';
     isFollow = json['isFollow'] ?? '';
     url = json['url'] ?? '';
-    likes = List.from(json['likes']).map((e) => e.toString()).toList() ?? [];
+    likes = List.from(json['likes']).map((e) => e.toString()).toList() ;
     shares = json['shares'] ?? 0;
   }
 

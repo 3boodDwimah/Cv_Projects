@@ -60,6 +60,20 @@ class SocialCubit extends Cubit<SocialStates> {
     ),
   ];
 
+  void updateEmail(String newEmail) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      try {
+        await user.updateEmail(newEmail);
+        print('Email updated successfully');
+      } catch (e) {
+        print('Error updating email: $e');
+      }
+    }
+  }
+
+
+
   void getUserData() {
     emit(SocialGetUserLoadingState());
 
@@ -168,7 +182,6 @@ class SocialCubit extends Cubit<SocialStates> {
   }) {
     UserDataModel model = UserDataModel(
         userStats:2,
-
         firstname: firstname,
         lastName: lastName,
         time: time,

@@ -31,7 +31,7 @@ class JobModel {
     toPrice = json['toPrice'] ?? '';
     typePrice = json['typePrice'] ?? '';
     itemSave =
-        List.from(json['itemSave']).map((e) => e.toString()).toList() ?? [];
+        List.from(json['itemSave']).map((e) => e.toString()).toList() ;
   }
 
   Map<String, dynamic> toJson() {
@@ -135,20 +135,16 @@ class JobInfoModel {
 
     responsibilities = List.from(json['responsibilities'])
             .map((e) => e.toString())
-            .toList() ??
-        [];
+            .toList() ;
     experienceAndSkills = List.from(json['experienceAndSkills'])
             .map((e) => e.toString())
-            .toList() ??
-        [];
+            .toList() ;
     benefitsAndPerks = List.from(json['benefitsAndPerks'])
             .map((e) => e.toString())
-            .toList() ??
-        [];
+            .toList() ;
     skills = List.from(json['skills'])
             .map((e) => e.toString())
-            .toList() ??
-        [];
+            .toList() ;
   }
 
   Map<String, dynamic> toJson() {

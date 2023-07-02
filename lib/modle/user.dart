@@ -13,6 +13,7 @@ class UserDataModel {
     dynamic jopTitle;
     dynamic url;
     dynamic userStats;
+    dynamic isEmailVerified;
 
   UserDataModel({
     required this.uId,
@@ -27,6 +28,7 @@ class UserDataModel {
     required this.jopTitle,
     required this.url,
     required this.userStats,
+     this.isEmailVerified,
 
   });
 
@@ -44,6 +46,7 @@ class UserDataModel {
       jopTitle = json['jopTitle'];
       url = json['url'];
       userStats = json['userStats'] ?? 0;
+      isEmailVerified = json['isEmailVerified'] ?? false;
 
     }
 
@@ -62,6 +65,7 @@ class UserDataModel {
       'jopTitle': jopTitle,
       'url': url,
       'userStats': userStats,
+      'isEmailVerified': isEmailVerified,
     };
   }
 }

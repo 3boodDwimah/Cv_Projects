@@ -17,6 +17,7 @@ import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/Search/search_home.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
 import 'package:cv/Ui/testt.dart';
+import 'package:cv/Ui/aaaaaaaaaa.dart';
 import 'package:cv/bloc/cubit_chat/cubit.dart';
 import 'package:cv/bloc/cubit_post/cubit.dart';
 import 'package:cv/bloc/cubit_post/states.dart';
@@ -339,7 +340,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                   CacheHelper.removeData(
                                     key: 'userStats',
                                   );
-
+navigateAndFinish(context, Chos());
                                 });
                               }
                               print("${CacheHelper.getData(key:'userStats')}686686886");

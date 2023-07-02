@@ -1,6 +1,7 @@
 import 'package:cv/Ui/NavBar/navbar.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
+import 'package:cv/Ui/SingUp/emailVerified.dart';
 import 'package:cv/bloc/cubit_singup/cubit.dart';
 import 'package:cv/bloc/cubit_singup/states.dart';
 import 'package:cv/core/colors.dart';
@@ -45,7 +46,7 @@ class _SingUPState extends State<SingUP> {
           listener: (context, state) {
             if (state is SocialCreateUserSuccessState) {
 
-                navigateAndFinish(context, SingIn());
+                navigateAndFinish(context, EmailVreified());
 
             }
 
