@@ -16,6 +16,7 @@ import 'package:cv/Ui/Profiles/profilescreen.dart';
 import 'package:cv/Ui/Room/voice_screen.dart';
 import 'package:cv/Ui/Search/search_home.dart';
 import 'package:cv/Ui/SingIn/singin.dart';
+import 'package:cv/Ui/aaaaaaaaaa.dart';
 import 'package:cv/Ui/testt.dart';
 import 'package:cv/bloc/cubit_chat/cubit.dart';
 import 'package:cv/bloc/cubit_post/cubit.dart';
@@ -40,6 +41,7 @@ import '../../../bloc/cubit_navbar/cubit.dart';
 import '../../../bloc/cubit_navbar/states.dart';
 import '../../../modle/user.dart';
 import '../../Chats/list_chats.dart';
+import '../Story/view/home_view/widgets/user_story_item.dart';
 
 var uFirstName = "";
 
@@ -342,7 +344,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                   if (value) {
                                     navigateAndFinish(
                                       context,
-                                      SearchScreen(),
+                                      Chos(),
                                     );
                                   }
                                 });
@@ -369,71 +371,71 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                               SizedBox(
                                 height: 25,
                               ),
-                              // Container(
-                              //   width: double.infinity,
-                              //   padding: EdgeInsetsDirectional.only(start: 15),
-                              //   child: CustomText(
-                              //     text: "القصص",
-                              //     fontSize: 14,
-                              //     fontWeight: FontWeight.w500,
-                              //     textAlign: TextAlign.start,
-                              //   ),
-                              // ),
-                              // SizedBox(
-                              //   height: 5,
-                              // ),
-                              // Stack(
-                              //   children: [
-                              //     Container(
-                              //       height: 70,
-                              //       margin: EdgeInsetsDirectional.only(start: 70),
-                              //       child: ListView.builder(
-                              //         scrollDirection: Axis.horizontal,
-                              //         padding: EdgeInsets.symmetric(horizontal: 5),
-                              //         itemBuilder: (context, index) {
-                              //           return UserStoryItem(
-                              //             setRectPoint: (rectpoint) {
-                              //               print(rect);
-                              //               setState(() {
-                              //                 rect = rectpoint;
-                              //               });
-                              //               onStoryItemTap(rect, index);
-                              //             },
-                              //             index: index,
-                              //           );
-                              //         },
-                              //       ),
-                              //     ),
-                              //     Padding(
-                              //       padding: const EdgeInsets.symmetric(
-                              //           horizontal: 10, vertical: 6),
-                              //       child: Stack(children: [
-                              //         CircleAvatar(
-                              //             radius: 28,
-                              //             backgroundImage: AssetImage(
-                              //                 "assets/images/photo_female_6.jpg"),
-                              //             backgroundColor: Colors.black),
-                              //         Positioned(
-                              //           left: 0,
-                              //           bottom: 0,
-                              //           child: CircleAvatar(
-                              //             child: Center(
-                              //                 child: Icon(
-                              //               Icons.add,
-                              //               size: 16,
-                              //               color: AppColor.white,
-                              //             )),
-                              //             radius: 8,
-                              //             backgroundColor: AppColor.main,
-                              //           ),
-                              //         )
-                              //       ]),
-                              //     ),
-                              //   ],
-                              // ),
-                              // SizedBox(
-                              //   height: 18,
-                              // ),
+                              Container(
+                                width: double.infinity,
+                                padding: EdgeInsetsDirectional.only(start: 15),
+                                child: CustomText(
+                                  text: "القصص",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    margin: EdgeInsetsDirectional.only(start: 70),
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      itemBuilder: (context, index) {
+                                        return UserStoryItem(
+                                          setRectPoint: (rectpoint) {
+                                            print(rect);
+                                            setState(() {
+                                              rect = rectpoint;
+                                            });
+                                            onStoryItemTap(rect, index);
+                                          },
+                                          index: index,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 6),
+                                    child: Stack(children: [
+                                      CircleAvatar(
+                                          radius: 28,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/photo_female_6.jpg"),
+                                          backgroundColor: Colors.black),
+                                      Positioned(
+                                        left: 0,
+                                        bottom: 0,
+                                        child: CircleAvatar(
+                                          child: Center(
+                                              child: Icon(
+                                            Icons.add,
+                                            size: 16,
+                                            color: AppColor.white,
+                                          )),
+                                          radius: 8,
+                                          backgroundColor: AppColor.main,
+                                        ),
+                                      )
+                                    ]),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 18,
+                              ),
                               SingleChildScrollView(
                                 child: Column(
                                   children: [

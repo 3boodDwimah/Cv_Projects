@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAHO9My-IUueEpL2UjQJAAIaaAiy2NbrWI',
-    appId: '1:544186740113:web:1900332db855a5c0853e30',
-    messagingSenderId: '544186740113',
-    projectId: 'cvprojectfire',
-    authDomain: 'cvprojectfire.firebaseapp.com',
-    storageBucket: 'cvprojectfire.appspot.com',
-    measurementId: 'G-S6SNR7L4YB',
+    apiKey: 'AIzaSyCYuSYr9xcrniohQxFeNm1MrI2O397DQzg',
+    appId: '1:1003218013364:web:14f58edce3a89251da1be1',
+    messagingSenderId: '1003218013364',
+    projectId: 'projectcv-d60a1',
+    authDomain: 'projectcv-d60a1.firebaseapp.com',
+    storageBucket: 'projectcv-d60a1.appspot.com',
+    measurementId: 'G-9ZN2BPGQBJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCDGKQoEQRau-SdXzOxOu9x-cp5x03Ki_8',
-    appId: '1:544186740113:android:b95f39dda02869c4853e30',
-    messagingSenderId: '544186740113',
-    projectId: 'cvprojectfire',
-    storageBucket: 'cvprojectfire.appspot.com',
+    apiKey: 'AIzaSyANpyKpjexeDlDD463tnkc9og5ihfP4zsQ',
+    appId: '1:1003218013364:android:4f863eb44ed0d6d3da1be1',
+    messagingSenderId: '1003218013364',
+    projectId: 'projectcv-d60a1',
+    storageBucket: 'projectcv-d60a1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB_mmxrXILpt_IXUt_7yme25AegTxb4_6E',
-    appId: '1:544186740113:ios:ca112575d926805d853e30',
-    messagingSenderId: '544186740113',
-    projectId: 'cvprojectfire',
-    storageBucket: 'cvprojectfire.appspot.com',
-    iosClientId: '544186740113-3smff7mnsp7p8920pdr4t53n49glvipc.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD23I8Gf_1Mr9OcAWEHtBLIR7qL0wsv4HQ',
+    appId: '1:1003218013364:ios:1358d3b48c2cc2f2da1be1',
+    messagingSenderId: '1003218013364',
+    projectId: 'projectcv-d60a1',
+    storageBucket: 'projectcv-d60a1.appspot.com',
+    iosClientId: '1003218013364-2ecq6umr53jfkvdu06l5icpco19on591.apps.googleusercontent.com',
     iosBundleId: 'ham.com.active.cvproject',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB_mmxrXILpt_IXUt_7yme25AegTxb4_6E',
-    appId: '1:544186740113:ios:ca112575d926805d853e30',
-    messagingSenderId: '544186740113',
-    projectId: 'cvprojectfire',
-    storageBucket: 'cvprojectfire.appspot.com',
-    iosClientId: '544186740113-3smff7mnsp7p8920pdr4t53n49glvipc.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD23I8Gf_1Mr9OcAWEHtBLIR7qL0wsv4HQ',
+    appId: '1:1003218013364:ios:1358d3b48c2cc2f2da1be1',
+    messagingSenderId: '1003218013364',
+    projectId: 'projectcv-d60a1',
+    storageBucket: 'projectcv-d60a1.appspot.com',
+    iosClientId: '1003218013364-2ecq6umr53jfkvdu06l5icpco19on591.apps.googleusercontent.com',
     iosBundleId: 'ham.com.active.cvproject',
   );
 }
