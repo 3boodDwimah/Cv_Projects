@@ -5,26 +5,28 @@
 // // gestures. You can also use WidgetTester to find child widgets in the widget
 // // tree, read text, and verify that the values of widget properties are correct.
 //
+// import 'package:cv/main.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_test/flutter_test.dart';
 //
-// import 'package:cvproject/main.dart';
-//
 // void main() {
-//   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+//   testWidgets('WidgetTester', (WidgetTester tester) async {
 //     // Build our app and trigger a frame.
 //     await tester.pumpWidget(const MyApp());
 //
-//     // Verify that our counter starts at 0.
-//     expect(find.text('0'), findsOneWidget);
-//     expect(find.text('1'), findsNothing);
+//     var container = find.byType(Container);
 //
-//     // Tap the '+' icon and trigger a frame.
-//     await tester.tap(find.byIcon(Icons.add));
-//     await tester.pump();
+//     // Verify that our Container is passed .
+//     expect(container, findsWidgets);
 //
-//     // Verify that our counter has incremented.
-//     expect(find.text('0'), findsNothing);
-//     expect(find.text('1'), findsOneWidget);
+//     var gestureDetector = find.byType(GestureDetector);
+//
+//     // Verify that our GestureDetector is passed .
+//     expect(gestureDetector, findsWidgets);
+//
+//     var column = find.byType(Column);
+//
+//     // Verify that our Column is passed .
+//     expect(column, findsWidgets);
 //   });
 // }

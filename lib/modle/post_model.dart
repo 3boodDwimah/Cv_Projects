@@ -44,11 +44,11 @@ class PostModel {
     postImage = json['postImage'];
     pid = json['pid'];
     // itemsave = json['itemsave'];
-    itemsave = List.from(json['itemsave']).map((e) => e.toString()).toList() ?? [];
+    itemsave = List.from(json['itemsave']).map((e) => e.toString()).toList() ;
 
     // postVideo = json['postVideo'];
     shares = json['shares'] ?? 0;
-    likes = List.from(json['likes']).map((e) => e.toString()).toList() ?? [];
+    likes = List.from(json['likes']).map((e) => e.toString()).toList() ;
 
 }
 

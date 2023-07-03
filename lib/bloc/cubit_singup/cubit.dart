@@ -70,6 +70,7 @@ class CvSingUpCubit extends Cubit<CvSingUpStates> {
   }) {
     UserDataModel model = UserDataModel(
       userStats:2,
+      isEmailVerified :false,
       firstname: firstname,
       phone: "phone ?? """,
       jopTitle:"jopTitle ?? """ ,
