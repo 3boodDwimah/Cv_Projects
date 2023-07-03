@@ -135,7 +135,7 @@ class MyApp extends StatelessWidget {
               FirstName = SocialCubit
                   .get(context)
                   .user!
-                  .userStats;
+                  .firstname;
               LastName = SocialCubit
                   .get(context)
                   .user!
@@ -180,7 +180,7 @@ class MyApp extends StatelessWidget {
             supportedLocales: [
               Locale('ar', 'AE'),
             ],
-            home:Chos() ,
+            home:startWidget ,
           );
         }));
   }

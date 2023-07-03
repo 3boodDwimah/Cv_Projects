@@ -1,6 +1,5 @@
 class CvVideoModel {
 
-  String? time;
   dynamic cvuId;
 
 
@@ -12,7 +11,6 @@ class CvVideoModel {
 
   CvVideoModel({
 
-    this.time,
     this.cvuId,
 
     this.cvVideos,
@@ -23,7 +21,6 @@ class CvVideoModel {
 
   CvVideoModel.fromJson(Map<String, dynamic> json) {
 
-    time = json['time'];
     cvVideos = json['cvVideos'];
     cvuId = json['cvuId'];
 
@@ -31,7 +28,6 @@ class CvVideoModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'time': time,
       'cvVideos': cvVideos,
       'cvuId': cvuId,
 

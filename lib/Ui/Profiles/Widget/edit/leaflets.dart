@@ -1,4 +1,5 @@
 import 'package:cv/Ui/Home/Wdgets/corporate_updates.dart';
+import 'package:cv/Ui/Profiles/Widget/edit/showVideo.dart';
 import 'package:cv/bloc/cubit_navbar/cubit.dart';
 import 'package:cv/bloc/cubit_post/cubit.dart';
 import 'package:cv/core/colors.dart';
@@ -100,6 +101,7 @@ class _leafletsState extends State<leaflets> {
             SizedBox(
               height: 10,
             ),
+            (SocialCubit.get(context).user!.cvVideos == null)?
             Container(
               height: 146,
               child: GestureDetector(
@@ -143,7 +145,15 @@ class _leafletsState extends State<leaflets> {
               //     padding: const EdgeInsets.all(4.0),
               //     child:
               //   ),
+            ):Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: GestureDetector(
+                  onTap: (){
+                    navigateTo(context, NetworkPlayerWidget());
+                  },
+                  child: Image.asset("assets/images/video.png")),
             ),
+
             SizedBox(
               height: 10,
             ),

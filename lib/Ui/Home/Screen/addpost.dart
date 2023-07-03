@@ -74,8 +74,13 @@ class _AddPostState extends State<AddPost> {
                             text: textController.text,
                           );
 
+    Future.delayed(Duration(milliseconds: 500), () {
+      CvPostCubit.get(context).removePostImage();
+    });
 
-                     // else {
+
+
+                          // else {
                         // CvPostCubit.get(context).uploadPostVideo(
                         //   time: formattedDate,
                         //   text: textController.text,

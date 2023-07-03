@@ -11,6 +11,8 @@ class UserDataModel {
     dynamic city;
     dynamic phone;
     dynamic jopTitle;
+    dynamic cvVideos;
+    dynamic cvuId;
     dynamic url;
     dynamic userStats;
     dynamic isEmailVerified;
@@ -26,6 +28,8 @@ class UserDataModel {
     required this.city,
     required this.phone,
     required this.jopTitle,
+     this.cvVideos,
+     this.cvuId,
     required this.url,
     required this.userStats,
      this.isEmailVerified,
@@ -40,6 +44,8 @@ class UserDataModel {
       lastName = json['lastName'];
       time = json['time'];
       image = json['image'];
+     cvVideos = json['cvVideos'];
+     cvuId = json['cvuId'];
       country = json['country'];
       city = json['city'];
       phone = json['phone'];
@@ -66,6 +72,8 @@ class UserDataModel {
       'url': url,
       'userStats': userStats,
       'isEmailVerified': isEmailVerified,
+      'cvVideos': cvVideos,
+      'cvuId': cvuId,
     };
   }
 }

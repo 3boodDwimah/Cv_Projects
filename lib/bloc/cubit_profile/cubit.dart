@@ -167,7 +167,7 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
   var pickerVideo = ImagePicker();
 
   Future<void> getCvVideo() async {
-    final pickedFile = await picker.pickImage(
+    final pickedFile = await picker.pickVideo(
       source: ImageSource.camera,
     );
 
@@ -196,12 +196,12 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
 
     firebase_storage.FirebaseStorage.instance
         .ref()
-        .child('posts/${Uri.file(cvVideo!.path).pathSegments.last}')
+        .child('users/${Uri.file(cvVideo!.path).pathSegments.last}')
         .putFile(cvVideo!)
         .then((value) {
       value.ref.getDownloadURL().then((value) {
         print(value);
-        createPost(
+        createCvVideo(
           time: time,
           CvVideos: value,
         );
@@ -213,7 +213,7 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
     });
   }
 
-  void createPost({
+  void createCvVideo({
     required String time,
     String? CvVideos,
     // String? postVideo,
@@ -222,13 +222,12 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
 
     CvVideoModel model = CvVideoModel(
       cvuId: UId,
-      time: time,
       cvVideos: CvVideos ?? '',
     );
 
     FirebaseFirestore.instance
-        .collection('posts')
-        .add(model.toJson())
+        .collection('users').doc(uId)
+        .update(model.toJson())
         .then((value) {})
         .catchError((error) {
       emit(EditCreateVideoErrorState());

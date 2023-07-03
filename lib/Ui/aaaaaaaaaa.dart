@@ -28,16 +28,16 @@ class Chos extends StatelessWidget {
             child:Text("User") ,height: 80,width: 110,color: AppColor.linkWaterD0D6E0,),
           ),
           SizedBox(height: 20,),
-          // GestureDetector(onTap: (){
-          //   CacheHelper.saveData(key: 'fi', value: 2);
-          //   navigateTo(context, SingIn());
-          //
-          // },
-          // child: Container(
-          //   alignment: Alignment.center,
-          //
-          //   child:Text("Business Owner") ,height: 80,width: 110,color: AppColor.main,),
-          // ),
+          GestureDetector(onTap: (){
+            CacheHelper.saveData(key: 'fi', value: 2);
+            navigateTo(context, SingIn());
+
+          },
+          child: Container(
+            alignment: Alignment.center,
+
+            child:Text("Business Owner") ,height: 80,width: 110,color: AppColor.main,),
+          ),
 
         ]),
       )

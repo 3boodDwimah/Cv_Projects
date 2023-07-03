@@ -179,6 +179,8 @@ class SocialCubit extends Cubit<SocialStates> {
     String? phone,
     String? jopTitle,
     String? url,
+    String? cvuId,
+    String? cvVideos,
   }) {
     UserDataModel model = UserDataModel(
         userStats:2,
@@ -192,7 +194,10 @@ class SocialCubit extends Cubit<SocialStates> {
         country: country,
         jopTitle: "jopTitle",
         url: "Url",
-        phone: "020000000");
+        phone: "020000000",
+       cvuId:null ,
+      cvVideos:null ,
+    );
 
     FirebaseFirestore.instance
         .collection('users')
